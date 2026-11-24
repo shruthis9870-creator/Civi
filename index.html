@@ -152,8 +152,22 @@
           <option value="#/complaint/CF-2026-00124">8. Live Ticket Tracking</option>
           <option value="#/profile">9. Citizen Profile & Impact</option>
           <option value="#/notifications">10. Alerts & Notifications</option>
+          <option disabled>──────────────</option>
+          <option value="admin.html#admin">11. [Admin] Central Command Overview</option>
+          <option value="admin.html#admin/complaints">12. [Admin] Complaint Management Matrix</option>
+          <option value="admin.html#admin/analytics">13. [Admin] Municipal Performance Analytics</option>
+          <option value="admin.html#admin/map">14. [Admin] Issue GIS Heatmap & Spatial Command</option>
+          <option value="admin.html#admin/departments">15. [Admin] Departments & Field Crew Management</option>
+          <option value="admin.html#admin/settings">16. [Admin] Central Command Settings & Rules</option>
+          <option value="admin.html#admin/login">17. [Admin] Administrator Secure Login</option>
         </select>
       </div>
+
+      <!-- Admin Command Center Direct Button -->
+      <a href="admin.html" class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-colors shadow-sm" title="Launch BBMP Central Command Center">
+        <span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+        <span class="hidden sm:inline">Admin Portal</span>
+      </a>
 
       <!-- Device Frame Switcher -->
       <button id="device-toggle-btn" onclick="App.toggleDeviceFrame()" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium transition-colors">

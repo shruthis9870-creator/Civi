@@ -1,6 +1,8 @@
 /**
  * CivicFix - Modular Views Export
  */
+import { AdminViews } from '../admin/adminViews.js';
+
 export const Views = {
   landing: () => document.getElementById('template-landing').innerHTML,
   login: () => document.getElementById('template-login').innerHTML,
@@ -10,5 +12,8 @@ export const Views = {
   reportStep3: () => document.getElementById('template-report-step3').innerHTML,
   success: () => document.getElementById('template-success').innerHTML,
   tracking: () => document.getElementById('template-tracking').innerHTML,
-  profile: () => document.getElementById('template-profile').innerHTML
+  profile: () => document.getElementById('template-profile').innerHTML,
+  admin: AdminViews
 };
+
+export { AdminViews };

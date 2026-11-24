@@ -1,337 +1,443 @@
 <!-- CivicFix - Welcome & Landing -->
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-          "outline": "#6f7973",
-          "primary": "#00513b",
-          "on-primary-fixed-variant": "#00513b",
-          "secondary-fixed": "#d2e4ff",
-          "on-surface-variant": "#3f4944",
-          "tertiary": "#005136",
-          "on-secondary": "#ffffff",
-          "surface-container-low": "#e9f7ed",
-          "secondary-fixed-dim": "#b0c8ea",
-          "tertiary-fixed": "#89f8c3",
-          "surface-container-high": "#deece2",
-          "primary-fixed-dim": "#89d6b5",
-          "primary-container": "#176b50",
-          "error": "#ba1a1a",
-          "secondary": "#48607d",
-          "on-secondary-container": "#49617e",
-          "surface-tint": "#176b50",
-          "on-error": "#ffffff",
-          "error-container": "#ffdad6",
-          "inverse-primary": "#89d6b5",
-          "on-tertiary-fixed": "#002113",
-          "on-secondary-fixed": "#001d37",
-          "primary-fixed": "#a4f3d0",
-          "surface-dim": "#d0ddd4",
-          "tertiary-fixed-dim": "#6cdba8",
-          "inverse-surface": "#27332d",
-          "on-secondary-fixed-variant": "#304864",
-          "on-tertiary-fixed-variant": "#005236",
-          "on-tertiary-container": "#7fedb9",
-          "on-primary-fixed": "#002116",
-          "on-background": "#121e18",
-          "surface-container-highest": "#d8e6dc",
-          "outline-variant": "#bec9c2",
-          "on-primary-container": "#9be9c6",
-          "on-primary": "#ffffff",
-          "background": "#effdf3",
-          "surface": "#effdf3",
-          "surface-container-lowest": "#ffffff",
-          "on-tertiary": "#ffffff",
-          "on-surface": "#121e18",
-          "tertiary-container": "#006c49",
-          "surface-variant": "#d8e6dc",
-          "surface-bright": "#effdf3",
-          "inverse-on-surface": "#e6f4ea",
-          "surface-container": "#e4f1e7",
-          "on-error-container": "#93000a",
-          "secondary-container": "#c3dcfe"
-        },
-        "borderRadius": {
-          "DEFAULT": "0.25rem",
-          "lg": "0.5rem",
-          "xl": "0.75rem",
-          "full": "9999px"
-        },
-        "spacing": {
-          "gutter-mobile": "1rem",
-          "space-lg": "1.5rem",
-          "margin": "2rem",
-          "margin-mobile": "1rem",
-          "space-xs": "0.25rem",
-          "space-xl": "2rem",
-          "space-sm": "0.5rem",
-          "space-md": "1rem",
-          "gutter": "1.5rem"
-        },
-        "fontFamily": {
-          "display-lg": ["Inter"],
-          "data-metric": ["Inter"],
-          "headline-lg": ["Inter"],
-          "display-lg-mobile": ["Inter"],
-          "body-sm": ["Inter"],
-          "headline-md": ["Inter"],
-          "body-lg": ["Inter"],
-          "headline-sm": ["Inter"],
-          "headline-lg-mobile": ["Inter"],
-          "label-sm": ["Inter"],
-          "body-md": ["Inter"],
-          "label-md": ["Inter"],
-          "title-md": ["Inter"]
-        },
-        "fontSize": {
-          "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-          "data-metric": ["28px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-          "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
-          "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
-          "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}],
-          "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-          "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
-          "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
-          "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
-          "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
-          "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-          "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600"}]
-        }
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    name="viewport" />
+  <meta content="mobile_blank" name="shell-type" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    @layer base {
+
+      html,
+      body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+      }
+
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
       }
     }
-  }</script><style>
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#6f7973",
+            "primary": "#00513b",
+            "on-primary-fixed-variant": "#00513b",
+            "secondary-fixed": "#d2e4ff",
+            "on-surface-variant": "#3f4944",
+            "tertiary": "#005136",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#e9f7ed",
+            "secondary-fixed-dim": "#b0c8ea",
+            "tertiary-fixed": "#89f8c3",
+            "surface-container-high": "#deece2",
+            "primary-fixed-dim": "#89d6b5",
+            "primary-container": "#176b50",
+            "error": "#ba1a1a",
+            "secondary": "#48607d",
+            "on-secondary-container": "#49617e",
+            "surface-tint": "#176b50",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#89d6b5",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-fixed": "#001d37",
+            "primary-fixed": "#a4f3d0",
+            "surface-dim": "#d0ddd4",
+            "tertiary-fixed-dim": "#6cdba8",
+            "inverse-surface": "#27332d",
+            "on-secondary-fixed-variant": "#304864",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-container": "#7fedb9",
+            "on-primary-fixed": "#002116",
+            "on-background": "#121e18",
+            "surface-container-highest": "#d8e6dc",
+            "outline-variant": "#bec9c2",
+            "on-primary-container": "#9be9c6",
+            "on-primary": "#ffffff",
+            "background": "#effdf3",
+            "surface": "#effdf3",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#121e18",
+            "tertiary-container": "#006c49",
+            "surface-variant": "#d8e6dc",
+            "surface-bright": "#effdf3",
+            "inverse-on-surface": "#e6f4ea",
+            "surface-container": "#e4f1e7",
+            "on-error-container": "#93000a",
+            "secondary-container": "#c3dcfe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "data-metric": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "title-md": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "data-metric": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600" }]
+          }
+        }
+      }
+    }</script>
+  <style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased pt-safe pb-safe flex flex-col min-h-screen"><main class="flex flex-col relative w-full bg-surface min-h-screen"><div class="flex flex-col w-full pb-8">
-<!-- Brand & Hero Area -->
-<section class="flex flex-col w-full px-4 pt-4 pb-2">
-<!-- Brand Crest & Header -->
-<div class="flex items-center justify-between w-full mb-4">
-<div class="flex items-center space-x-2.5">
-<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-on-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
-</div>
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary leading-none tracking-tight font-bold">CivicFix</span>
-<span class="font-label-sm text-label-sm text-secondary font-medium tracking-wide">MUNICIPAL DESK • BBMP</span>
-</div>
-</div>
-<div class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-surface-container-high">
-<span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-primary font-semibold">Live System</span>
-</div>
-</div>
-<!-- Visual Storytelling Hero Card -->
-<div class="relative w-full rounded-2xl overflow-hidden shadow-sm bg-surface-container">
-<div class="bg-cover bg-center w-full h-56 flex flex-col justify-end relative" data-alt="A sunlit, spotless modern city street in Bengaluru with smooth asphalt, clear pedestrian crosswalks, lush green manicured sidewalks with native blooming trees, smart energy-efficient solar streetlights, well-maintained tactile paving, and active happy urban citizens walking in daylight. Bright organic natural lighting, crisp corporate modern realism, architectural civic vibrancy with deep forest green tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDc1GuDiHJ6huxXR_Nsautq3CAuZWJEM3wjOYhmjuyDUoFHA8qLh_DJUExlujOhK7UaiqFi0Nhh2vlfhpTLl4EX0kGxMR73iK0AS_5HfkbTcHHdK9r7tW3lvuc5iYMo_xgRzOzP-tO-7ZUnX1mnlQQ_G115djjNJHs4zGcLMg0dTckcOtNq_wNwTP3uhmFZhBOFyPsCpaPs7XDgYTf8PzGnLEjbo007-l84PFzu-ttX')">
-<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/30 to-transparent"></div>
-<div class="relative z-10 p-4 text-surface-container-lowest">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-lowest/20 backdrop-blur-md font-label-sm text-label-sm text-surface-container-lowest mb-1.5">
-<span class="material-symbols-outlined text-[14px]">eco</span> Smart Civic Ecosystem
-          </span>
-<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-surface-container-lowest tracking-tight">Report it. Track it. Fix it.</h2>
-</div>
-</div>
-</div>
-<!-- Value Proposition -->
-<div class="mt-4 px-1">
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Empowering citizens to report civic infrastructure problems, track municipal repairs in real-time, and build cleaner, safer neighbourhoods together.
-      </p>
-</div>
-<!-- Core Actions -->
-<div class="flex flex-col gap-2.5 mt-5">
-<button class="w-full flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-primary text-on-primary font-title-md text-title-md font-semibold shadow-sm active:scale-[0.99] transition-transform" id="getStartedBtn" onclick="window.location.href='06-report-details-step1.html'">
-<span>Get Started</span>
-<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-</button>
-<button class="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-surface-container-lowest text-secondary font-title-md text-title-md font-semibold shadow-sm active:scale-[0.99] transition-transform" id="loginBtn" onclick="window.location.href='05-citizen-login.html'">
-<span class="material-symbols-outlined text-[20px]">login</span>
-<span>Login to My Account</span>
-</button>
-</div>
-</section>
-<!-- Realtime Civic Impact Proof Badges (Horizontal Scroll / Stack) -->
-<section class="w-full px-4 mt-3">
-<div class="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-surface-container shadow-sm">
-<div class="flex flex-col items-center text-center p-2 rounded-xl bg-surface-container-lowest shadow-sm">
-<span class="font-headline-sm text-headline-sm text-primary font-bold">15k+</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5 leading-tight">Issues Fixed</span>
-</div>
-<div class="flex flex-col items-center text-center p-2 rounded-xl bg-surface-container-lowest shadow-sm">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">198</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5 leading-tight">Wards Active</span>
-</div>
-<div class="flex flex-col items-center text-center p-2 rounded-xl bg-surface-container-lowest shadow-sm">
-<span class="font-headline-sm text-headline-sm text-primary font-bold">94%</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5 leading-tight">SLA Met</span>
-</div>
-</div>
-</section>
-<!-- Interactive Civic Preview Drawer -->
-<section class="w-full px-4 mt-5">
-<div class="flex items-center justify-between mb-3 px-1">
-<div class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
-<h3 class="font-title-md text-title-md font-bold text-on-surface">How CivicFix Works</h3>
-</div>
-<span class="font-label-sm text-label-sm text-secondary font-semibold bg-surface-container-high px-2 py-0.5 rounded-full">Civic OS 3.2</span>
-</div>
-<!-- Feature 1: Snap & Report -->
-<div class="flex flex-col p-4 mb-3 rounded-2xl bg-surface-container-lowest shadow-sm transition-all hover:shadow-md">
-<div class="flex items-start gap-3.5">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0 text-primary">
-<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center justify-between">
-<h4 class="font-title-md text-title-md text-on-surface font-semibold truncate">Report Civic Issues</h4>
-<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">AI Scan</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mt-1">
-            Snap photos of potholes, garbage, streetlights, or drainage in seconds.
-          </p>
-</div>
-</div>
-<!-- Visual Micro-Preview for Camera Triage -->
-<div class="mt-3.5 pt-3 flex items-center justify-between bg-surface-container rounded-xl px-3 py-2">
-<div class="flex items-center gap-2 min-w-0">
-<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
-<span class="font-label-md text-label-md text-on-surface font-medium truncate">Indiranagar 100ft Road, Ward 112</span>
-</div>
-<span class="font-label-sm text-label-sm text-primary font-bold shrink-0">Auto-Tagged</span>
-</div>
-</div>
-<!-- Feature 2: Track Live Progress -->
-<div class="flex flex-col p-4 mb-3 rounded-2xl bg-surface-container-lowest shadow-sm transition-all hover:shadow-md">
-<div class="flex items-start gap-3.5">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0 text-primary">
-<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">sync_alt</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center justify-between">
-<h4 class="font-title-md text-title-md text-on-surface font-semibold truncate">Track Live Progress</h4>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">3-Stage SLA</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mt-1">
-            Real-time updates as municipal teams inspect, assign, and resolve your reports.
-          </p>
-</div>
-</div>
-<!-- Live Pipeline Stepper Preview -->
-<div class="mt-3.5 pt-2 flex flex-col bg-surface-container rounded-xl p-3">
-<div class="flex items-center justify-between text-on-surface mb-2">
-<span class="font-label-sm text-label-sm font-semibold text-secondary">Dispatch Pipeline</span>
-<span class="font-label-sm text-label-sm text-primary font-bold">Crew Dispatched</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden flex">
-<div class="bg-primary h-full w-2/3 rounded-full"></div>
-</div>
-<div class="flex justify-between items-center mt-2 text-on-surface-variant font-label-sm text-label-sm">
-<span>Reported</span>
-<span class="text-primary font-medium">Crew en route</span>
-<span>Verified Fix</span>
-</div>
-</div>
-</div>
-<!-- Feature 3: Neighbourhood Community -->
-<div class="flex flex-col p-4 mb-1 rounded-2xl bg-surface-container-lowest shadow-sm transition-all hover:shadow-md">
-<div class="flex items-start gap-3.5">
-<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0 text-primary">
-<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">groups</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center justify-between">
-<h4 class="font-title-md text-title-md text-on-surface font-semibold truncate">Build Better Neighbourhoods</h4>
-<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">Community</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mt-1">
-            Join thousands of active Bengaluru citizens making our wards cleaner and safer.
-          </p>
-</div>
-</div>
-<!-- Resident Testimonial Cardlet -->
-<div class="mt-3.5 flex items-center gap-3 bg-surface-container rounded-xl p-2.5">
-<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="Close up warm profile portrait of a smiling Indian resident civic volunteer wearing sustainable cotton shirt outdoors in sunny Bangalore urban garden, authentic soft depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDShAEmOVf8CJuzUq6ZkjnaWAe0PENjYvic3xYelaaYoFyicEWlFXqwKP3-fZJeJWroN2gd9lIiqLZi_jwuxzzJQcUshPImQoLu2gJc4NYEQ69PArumfv_KHzBI7WKoeE3Wyee-EqJsiCU5VdzZrgSEahB09pSVAQ5h2QTy0z-iyIY2qNmh9AV5V9Kq-AZ-6Z75OcUMS8cXWttD6XaFFK33SRQYhB5Gw04aiBy-TbnS"/>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-1.5">
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Priya Shankar</span>
-<span class="material-symbols-outlined text-primary text-[15px]">verified</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">"Drainage repaired on 4th Main in under 24 hrs!"</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Quick Action Prompt / Civic Badge of Honor -->
-<section class="w-full px-4 mt-4">
-<div class="p-4 rounded-2xl bg-gradient-to-r from-surface-container-low to-surface-container flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[22px]">notification_important</span>
-</div>
-<div class="flex flex-col">
-<span class="font-title-md text-title-md font-semibold text-on-surface">Spotted a pothole today?</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Takes less than 45 seconds to log</span>
-</div>
-</div>
-<button class="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold shrink-0 shadow-sm active:scale-95 transition-transform" id="quickReportBtn" onclick="window.location.href='06-report-details-step1.html'">
-        Report
-      </button>
-</div>
-</section>
-<!-- Institutional Footer -->
-<footer class="w-full px-4 mt-8 flex flex-col items-center">
-<div class="flex items-center justify-center space-x-2 text-on-surface-variant mb-3">
-<span class="material-symbols-outlined text-[18px] text-primary">domain</span>
-<span class="font-label-md text-label-md font-medium text-secondary">Bruhat Bengaluru Mahanagara Palike Partner</span>
-</div>
-<!-- Links -->
-<div class="flex items-center justify-center flex-wrap gap-x-4 gap-y-2 mb-4 text-center">
-<button class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" type="button">About CivicFix</button>
-<span class="text-outline-variant font-label-sm">•</span>
-<button class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" type="button">Municipal Contacts</button>
-<span class="text-outline-variant font-label-sm">•</span>
-<button class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" type="button">Privacy Policy &amp; Terms</button>
-</div>
-<!-- Official Seal Disclaimer -->
-<p class="font-body-sm text-body-sm text-outline text-center max-w-xs leading-tight">
-      CivicFix is a civic tech initiative connecting citizens with local ward authorities. Emergency line: 112.
-    </p>
-</footer>
-</div>
-<script>
-  (function () {
-    const getStartedBtn = document.getElementById('getStartedBtn');
-    const loginBtn = document.getElementById('loginBtn');
-    const quickReportBtn = document.getElementById('quickReportBtn');
+</head>
 
-    if (getStartedBtn) {
-      getStartedBtn.addEventListener('click', () => {
-        getStartedBtn.classList.add('opacity-90');
-        setTimeout(() => getStartedBtn.classList.remove('opacity-90'), 150);
-      });
-    }
+<body
+  class="bg-surface font-body-md text-body-md text-on-surface antialiased pt-safe pb-safe flex flex-col min-h-screen">
+  <main class="flex flex-col relative w-full bg-surface min-h-screen">
+    <div class="flex flex-col w-full pb-8">
+      <!-- Brand & Hero Area -->
+      <section class="flex flex-col w-full px-4 pt-4 pb-2">
+        <!-- Brand Crest & Header -->
+        <div class="flex items-center justify-between w-full mb-4">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-sm">
+              <span class="material-symbols-outlined text-on-primary text-[22px]"
+                style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-headline-sm text-headline-sm text-primary leading-none tracking-tight font-bold">CivicFix</span>
+              <span class="font-label-sm text-label-sm text-secondary font-medium tracking-wide">MUNICIPAL DESK •
+                BBMP</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-surface-container-high">
+            <span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span class="font-label-sm text-label-sm text-primary font-semibold">Live System</span>
+          </div>
+        </div>
+        <!-- Visual Storytelling Hero Card -->
+        <div class="relative w-full rounded-2xl overflow-hidden shadow-sm bg-surface-container">
+          <div class="bg-cover bg-center w-full h-56 flex flex-col justify-end relative"
+            data-alt="A sunlit, spotless modern city street in Bengaluru with smooth asphalt, clear pedestrian crosswalks, lush green manicured sidewalks with native blooming trees, smart energy-efficient solar streetlights, well-maintained tactile paving, and active happy urban citizens walking in daylight. Bright organic natural lighting, crisp corporate modern realism, architectural civic vibrancy with deep forest green tones."
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDc1GuDiHJ6huxXR_Nsautq3CAuZWJEM3wjOYhmjuyDUoFHA8qLh_DJUExlujOhK7UaiqFi0Nhh2vlfhpTLl4EX0kGxMR73iK0AS_5HfkbTcHHdK9r7tW3lvuc5iYMo_xgRzOzP-tO-7ZUnX1mnlQQ_G115djjNJHs4zGcLMg0dTckcOtNq_wNwTP3uhmFZhBOFyPsCpaPs7XDgYTf8PzGnLEjbo007-l84PFzu-ttX')">
+            <div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/30 to-transparent">
+            </div>
+            <div class="relative z-10 p-4 text-surface-container-lowest">
+              <span
+                class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-lowest/20 backdrop-blur-md font-label-sm text-label-sm text-surface-container-lowest mb-1.5">
+                <span class="material-symbols-outlined text-[14px]">eco</span> Smart Civic Ecosystem
+              </span>
+              <h2
+                class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-surface-container-lowest tracking-tight">
+                Report it. Track it. Fix it.</h2>
+            </div>
+          </div>
+        </div>
+        <!-- Value Proposition -->
+        <div class="mt-4 px-1">
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Empowering citizens to report civic infrastructure problems, track municipal repairs in real-time, and build
+            cleaner, safer neighbourhoods together.
+          </p>
+        </div>
+        <!-- Core Actions -->
+        <div class="flex flex-col gap-2.5 mt-5">
+          <button
+            class="w-full flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-primary text-on-primary font-title-md text-title-md font-semibold shadow-sm active:scale-[0.99] transition-transform"
+            id="getStartedBtn" onclick="window.location.href='06-report-details-step1.html'">
+            <span>Get Started</span>
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </button>
+          <button
+            class="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-surface-container-lowest text-secondary font-title-md text-title-md font-semibold shadow-sm active:scale-[0.99] transition-transform"
+            id="loginBtn" onclick="window.location.href='05-citizen-login.html'">
+            <span class="material-symbols-outlined text-[20px]">login</span>
+            <span>Login to My Account</span>
+          </button>
+        </div>
+      </section>
+      <!-- Realtime Civic Impact Proof Badges (Horizontal Scroll / Stack) -->
+      <section class="w-full px-4 mt-3">
+        <div class="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-surface-container shadow-sm">
+          <div class="flex flex-col items-center text-center p-2 rounded-xl bg-surface-container-lowest shadow-sm">
+            <span class="font-headline-sm text-headline-sm text-primary font-bold">15k+</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5 leading-tight">Issues
+              Fixed</span>
+          </div>
+          <div class="flex flex-col items-center text-center p-2 rounded-xl bg-surface-container-lowest shadow-sm">
+            <span class="font-headline-sm text-headline-sm text-secondary font-bold">198</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5 leading-tight">Wards
+              Active</span>
+          </div>
+          <div class="flex flex-col items-center text-center p-2 rounded-xl bg-surface-container-lowest shadow-sm">
+            <span class="font-headline-sm text-headline-sm text-primary font-bold">94%</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5 leading-tight">SLA
+              Met</span>
+          </div>
+        </div>
+      </section>
+      <!-- Interactive Civic Preview Drawer -->
+      <section class="w-full px-4 mt-5">
+        <div class="flex items-center justify-between mb-3 px-1">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+            <h3 class="font-title-md text-title-md font-bold text-on-surface">How CivicFix Works</h3>
+          </div>
+          <span
+            class="font-label-sm text-label-sm text-secondary font-semibold bg-surface-container-high px-2 py-0.5 rounded-full">Civic
+            OS 3.2</span>
+        </div>
+        <!-- Feature 1: Snap & Report -->
+        <div
+          class="flex flex-col p-4 mb-3 rounded-2xl bg-surface-container-lowest shadow-sm transition-all hover:shadow-md">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0 text-primary">
+              <span class="material-symbols-outlined text-[26px]"
+                style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <div class="flex items-center justify-between">
+                <h4 class="font-title-md text-title-md text-on-surface font-semibold truncate">Report Civic Issues</h4>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">AI
+                  Scan</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Snap photos of potholes, garbage, streetlights, or drainage in seconds.
+              </p>
+            </div>
+          </div>
+          <!-- Visual Micro-Preview for Camera Triage -->
+          <div class="mt-3.5 pt-3 flex items-center justify-between bg-surface-container rounded-xl px-3 py-2">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+              <span class="font-label-md text-label-md text-on-surface font-medium truncate">Indiranagar 100ft Road,
+                Ward 112</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-primary font-bold shrink-0">Auto-Tagged</span>
+          </div>
+        </div>
+        <!-- Feature 2: Track Live Progress -->
+        <div
+          class="flex flex-col p-4 mb-3 rounded-2xl bg-surface-container-lowest shadow-sm transition-all hover:shadow-md">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0 text-primary">
+              <span class="material-symbols-outlined text-[26px]"
+                style="font-variation-settings: 'FILL' 1;">sync_alt</span>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <div class="flex items-center justify-between">
+                <h4 class="font-title-md text-title-md text-on-surface font-semibold truncate">Track Live Progress</h4>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">3-Stage
+                  SLA</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Real-time updates as municipal teams inspect, assign, and resolve your reports.
+              </p>
+            </div>
+          </div>
+          <!-- Live Pipeline Stepper Preview -->
+          <div class="mt-3.5 pt-2 flex flex-col bg-surface-container rounded-xl p-3">
+            <div class="flex items-center justify-between text-on-surface mb-2">
+              <span class="font-label-sm text-label-sm font-semibold text-secondary">Dispatch Pipeline</span>
+              <span class="font-label-sm text-label-sm text-primary font-bold">Crew Dispatched</span>
+            </div>
+            <div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden flex">
+              <div class="bg-primary h-full w-2/3 rounded-full"></div>
+            </div>
+            <div class="flex justify-between items-center mt-2 text-on-surface-variant font-label-sm text-label-sm">
+              <span>Reported</span>
+              <span class="text-primary font-medium">Crew en route</span>
+              <span>Verified Fix</span>
+            </div>
+          </div>
+        </div>
+        <!-- Feature 3: Neighbourhood Community -->
+        <div
+          class="flex flex-col p-4 mb-1 rounded-2xl bg-surface-container-lowest shadow-sm transition-all hover:shadow-md">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0 text-primary">
+              <span class="material-symbols-outlined text-[26px]"
+                style="font-variation-settings: 'FILL' 1;">groups</span>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <div class="flex items-center justify-between">
+                <h4 class="font-title-md text-title-md text-on-surface font-semibold truncate">Build Better
+                  Neighbourhoods</h4>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">Community</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Join thousands of active Bengaluru citizens making our wards cleaner and safer.
+              </p>
+            </div>
+          </div>
+          <!-- Resident Testimonial Cardlet -->
+          <div class="mt-3.5 flex items-center gap-3 bg-surface-container rounded-xl p-2.5">
+            <img class="w-10 h-10 rounded-full object-cover shrink-0"
+              data-alt="Close up warm profile portrait of a smiling Indian resident civic volunteer wearing sustainable cotton shirt outdoors in sunny Bangalore urban garden, authentic soft depth of field."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDShAEmOVf8CJuzUq6ZkjnaWAe0PENjYvic3xYelaaYoFyicEWlFXqwKP3-fZJeJWroN2gd9lIiqLZi_jwuxzzJQcUshPImQoLu2gJc4NYEQ69PArumfv_KHzBI7WKoeE3Wyee-EqJsiCU5VdzZrgSEahB09pSVAQ5h2QTy0z-iyIY2qNmh9AV5V9Kq-AZ-6Z75OcUMS8cXWttD6XaFFK33SRQYhB5Gw04aiBy-TbnS" />
+            <div class="flex flex-col min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="font-label-md text-label-md text-on-surface font-semibold truncate">Priya Shankar</span>
+                <span class="material-symbols-outlined text-primary text-[15px]">verified</span>
+              </div>
+              <span class="font-body-sm text-body-sm text-on-surface-variant truncate">"Drainage repaired on 4th Main in
+                under 24 hrs!"</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Quick Action Prompt / Civic Badge of Honor -->
+      <section class="w-full px-4 mt-4">
+        <div
+          class="p-4 rounded-2xl bg-gradient-to-r from-surface-container-low to-surface-container flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[22px]">notification_important</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-title-md text-title-md font-semibold text-on-surface">Spotted a pothole today?</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Takes less than 45 seconds to log</span>
+            </div>
+          </div>
+          <button
+            class="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold shrink-0 shadow-sm active:scale-95 transition-transform"
+            id="quickReportBtn" onclick="window.location.href='06-report-details-step1.html'">
+            Report
+          </button>
+        </div>
+      </section>
+      <!-- Institutional Footer -->
+      <footer class="w-full px-4 mt-8 flex flex-col items-center">
+        <div class="flex items-center justify-center space-x-2 text-on-surface-variant mb-3">
+          <span class="material-symbols-outlined text-[18px] text-primary">domain</span>
+          <span class="font-label-md text-label-md font-medium text-secondary">Bruhat Bengaluru Mahanagara Palike
+            Partner</span>
+        </div>
+        <!-- Links -->
+        <div class="flex items-center justify-center flex-wrap gap-x-4 gap-y-2 mb-4 text-center">
+          <button class="font-label-md text-label-md text-secondary hover:text-primary transition-colors"
+            type="button">About CivicFix</button>
+          <span class="text-outline-variant font-label-sm">•</span>
+          <button class="font-label-md text-label-md text-secondary hover:text-primary transition-colors"
+            type="button">Municipal Contacts</button>
+          <span class="text-outline-variant font-label-sm">•</span>
+          <button class="font-label-md text-label-md text-secondary hover:text-primary transition-colors"
+            type="button">Privacy Policy &amp; Terms</button>
+        </div>
+        <!-- Official Seal Disclaimer -->
+        <p class="font-body-sm text-body-sm text-outline text-center max-w-xs leading-tight">
+          CivicFix is a civic tech initiative connecting citizens with local ward authorities. Emergency line: 112.
+        </p>
+      </footer>
+    </div>
+    <script>
+        (function () {
+          const getStartedBtn = document.getElementById('getStartedBtn');
+          const loginBtn = document.getElementById('loginBtn');
+          const quickReportBtn = document.getElementById('quickReportBtn');
 
-    if (loginBtn) {
-      loginBtn.addEventListener('click', () => {
-        loginBtn.classList.add('bg-surface-container');
-        setTimeout(() => loginBtn.classList.remove('bg-surface-container'), 150);
-      });
-    }
+          if (getStartedBtn) {
+            getStartedBtn.addEventListener('click', () => {
+              getStartedBtn.classList.add('opacity-90');
+              setTimeout(() => getStartedBtn.classList.remove('opacity-90'), 150);
+            });
+          }
 
-    if (quickReportBtn) {
-      quickReportBtn.addEventListener('click', () => {
-        quickReportBtn.classList.add('scale-95');
-        setTimeout(() => quickReportBtn.classList.remove('scale-95'), 150);
-      });
-    }
-  })();
-</script></main></body></html>
+          if (loginBtn) {
+            loginBtn.addEventListener('click', () => {
+              loginBtn.classList.add('bg-surface-container');
+              setTimeout(() => loginBtn.classList.remove('bg-surface-container'), 150);
+            });
+          }
+
+          if (quickReportBtn) {
+            quickReportBtn.addEventListener('click', () => {
+              quickReportBtn.classList.add('scale-95');
+              setTimeout(() => quickReportBtn.classList.remove('scale-95'), 150);
+            });
+          }
+        })();
+    </script>
+  </main>
+</body>
+
+</html>

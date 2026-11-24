@@ -33,6 +33,13 @@ export class Router {
     const jumper = document.getElementById('screen-jumper');
     if (jumper) jumper.value = path;
 
+    // If route is admin, redirect to dedicated admin command center
+    if (path.startsWith('#/admin') || path.startsWith('#admin')) {
+      const adminTarget = `admin.html${path.replace('#/', '#')}`;
+      window.location.href = adminTarget;
+      return;
+    }
+
     // Check exact match
     if (this.routes[path]) {
       this.routes[path]();

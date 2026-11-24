@@ -248,6 +248,153 @@ export const Store = {
     });
     this.saveComplaints(list);
     return item;
+  },
+
+  // ================= ADMIN COMMAND CENTER SERVICES =================
+  updateComplaintStatus(id, newStatus, remarks = '') {
+    const list = this.getComplaints();
+    const item = list.find(c => c.id === id || `#${c.id}` === id || c.id === `#${id}`);
+    if (!item) return null;
+
+    item.status = newStatus;
+    const now = new Date();
+    const timeShort = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    if (newStatus === 'Resolved') {
+      item.statusStep = 4;
+      item.slaRemaining = 'Resolved by BBMP Crew';
+      if (item.timeline && item.timeline[3]) {
+        item.timeline[3].done = true;
+        item.timeline[3].time = `Resolved • ${timeShort}`;
+      }
+    } else if (newStatus === 'In Progress') {
+      item.statusStep = 3;
+      item.slaRemaining = 'Work order active • Crew on site';
+      if (item.timeline && item.timeline[2]) {
+        item.timeline[2].done = true;
+        item.timeline[2].active = true;
+      }
+    } else if (newStatus === 'Pending Review') {
+      item.statusStep = 1;
+      item.slaRemaining = 'Awaiting Engineer Sign-off';
+    }
+
+    if (remarks) {
+      if (!item.comments) item.comments = [];
+      item.comments.push({
+        author: 'Er. Priya N. (Chief Municipal Eng.)',
+        role: 'BBMP Central Command',
+        text: `Status updated to ${newStatus}. Note: ${remarks}`,
+        time: timeShort
+      });
+    }
+
+    this.saveComplaints(list);
+
+    // Create notification for citizen
+    const notifs = this.getNotifications();
+    notifs.unshift({
+      id: `notif-${Date.now()}`,
+      type: newStatus === 'Resolved' ? 'resolved' : 'dispatch',
+      badge: `Status: ${newStatus}`,
+      badgeColor: newStatus === 'Resolved' ? 'primary-container text-on-primary' : 'secondary-container',
+      timeAgo: 'Just now',
+      title: `Ticket #${item.id} is now ${newStatus}`,
+      message: `BBMP Central Command updated ticket "${item.title}". ${remarks || 'Field team updated the status.'}`,
+      targetId: item.id,
+      read: false,
+      icon: newStatus === 'Resolved' ? 'check_circle' : 'engineering',
+      iconBg: newStatus === 'Resolved' ? 'bg-primary text-on-primary' : 'bg-primary-fixed text-on-primary-fixed',
+      footerText: 'BBMP Municipal Governance',
+      actionText: 'View Tracking'
+    });
+    this.saveNotifications(notifs);
+
+    return item;
+  },
+
+  assignDepartment(id, dept, engineer, crewVehicle = '') {
+    const list = this.getComplaints();
+    const item = list.find(c => c.id === id || `#${c.id}` === id || c.id === `#${id}`);
+    if (!item) return null;
+
+    if (dept) item.assignedDept = dept;
+    if (engineer) item.engineer = engineer;
+    if (crewVehicle) item.crewVehicle = crewVehicle;
+
+    item.status = 'In Progress';
+    item.statusStep = 3;
+
+    const now = new Date();
+    const timeShort = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    if (!item.comments) item.comments = [];
+    item.comments.push({
+      author: 'BBMP Central Command',
+      role: 'Official',
+      text: `Work order dispatched to ${dept}. Assigned Engineer: ${engineer || 'Field Officer'}.`,
+      time: timeShort
+    });
+
+    this.saveComplaints(list);
+    return item;
+  },
+
+  bulkUpdateStatus(ids, newStatus) {
+    const list = this.getComplaints();
+    const updatedCount = 0;
+    const cleanIds = ids.map(id => id.replace(/^#/, ''));
+
+    list.forEach(item => {
+      const bareId = item.id.replace(/^#/, '');
+      if (cleanIds.includes(bareId)) {
+        item.status = newStatus;
+        if (newStatus === 'Resolved') item.statusStep = 4;
+        if (newStatus === 'In Progress') item.statusStep = 3;
+      }
+    });
+
+    this.saveComplaints(list);
+    return list;
+  },
+
+  getAdminStats() {
+    const list = this.getComplaints();
+    const total = list.length;
+    const pending = list.filter(c => c.status === 'Pending Review').length;
+    const inProgress = list.filter(c => c.status === 'In Progress').length;
+    const resolved = list.filter(c => c.status === 'Resolved').length;
+    const escalated = list.filter(c => c.status === 'Escalated' || c.priority?.includes('Urgent')).length;
+
+    // Categories breakdown
+    const byCategory = {
+      pothole: list.filter(c => c.category === 'pothole').length,
+      garbage: list.filter(c => c.category === 'garbage').length,
+      streetlights: list.filter(c => c.category === 'streetlights').length,
+      water: list.filter(c => c.category === 'water').length,
+      drainage: list.filter(c => c.category === 'drainage').length,
+      other: list.filter(c => c.category === 'other' || !['pothole', 'garbage', 'streetlights', 'water', 'drainage'].includes(c.category)).length
+    };
+
+    // Calculate dynamic SLA compliance
+    const slaCompliance = total > 0 ? Math.round(((resolved + inProgress * 0.9) / total) * 100 * 10) / 10 : 94.2;
+
+    return {
+      total,
+      pending,
+      inProgress,
+      resolved,
+      escalated,
+      slaCompliance: Math.min(100, Math.max(88, slaCompliance)),
+      meanTimeToDispatch: '42 mins',
+      avgResolutionHours: '18.4 hrs',
+      byCategory
+    };
+  },
+
+  resetComplaints() {
+    localStorage.setItem(this.KEYS.COMPLAINTS, JSON.stringify(INITIAL_COMPLAINTS));
+    return INITIAL_COMPLAINTS;
   }
 };
 

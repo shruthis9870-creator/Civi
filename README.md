@@ -2,110 +2,171 @@
 
 A modern civic-tech platform connecting urban citizens with local municipal authorities (**Bruhat Bengaluru Mahanagara Palike - BBMP**). CivicFix empowers residents to snap photos of civic hazards, automatically geo-tag locations with pinpoint precision, route issues through automated AI triage to relevant municipal departments, and track field crew repairs in real-time under guaranteed Service Level Agreements (SLA).
 
+The platform also provides a comprehensive **Admin Central Command Suite** for municipal engineers, executive officers, and ward supervisors to monitor operations, dispatch field crews, triage complaints, and review analytics.
+
 ---
 
 ## 🌟 Key Features
 
-1. **AI-Assisted Issue Reporting (3-Step Flow)**:
-   - **Step 1: Details & Evidence**: AI Vision classification with 98% accuracy match, category selection (Roads & Potholes, Solid Waste, Broken Streetlights, Water Leakage, Drainage), description with live character count, and camera/gallery photo upload with EXIF metadata tagging.
-   - **Step 2: Precision Location Pin**: Interactive map with street/landmark search across Bengaluru wards, draggable pinpoint anchor, ±3m accuracy calculation, and one-tap GPS *"Locate Me"* detection.
-   - **Step 3: Review & Citizen Certification**: Summary confirmation card, automated routing preview to BBMP departmental cells, anonymous posting toggle, and official Section 134 Karnataka Municipal Corporations Act compliance disclaimer.
+### 1. Citizen Portal (Mobile-First Experience)
+- **AI-Assisted Issue Reporting (3-Step Flow)**:
+  - **Step 1: Details & Evidence**: AI Vision classification with 98% accuracy match, category selection (Roads & Potholes, Solid Waste, Broken Streetlights, Water Leakage, Drainage), description with live character count, and camera/gallery photo upload with EXIF metadata tagging.
+  - **Step 2: Precision Location Pin**: Interactive map with street/landmark search across Bengaluru wards, draggable pinpoint anchor, ±3m accuracy calculation, and one-tap GPS *"Locate Me"* detection.
+  - **Step 3: Review & Citizen Certification**: Summary confirmation card, automated routing preview to BBMP departmental cells, anonymous posting toggle, and official Section 134 Karnataka Municipal Corporations Act compliance disclaimer.
+- **Real-time Live Dispatch & SLA Tracking**:
+  - 4-stage resolution timeline: Complaint Registered → AI Duplicate & Severity Check → Municipal Engineer Dispatch → Field Crew Repair & Photo Proof.
+  - Interactive Leaflet map with simulated real-time crew vehicle radar (`KA-01-EA-4821`).
+- **Community Backing & Citizen Karma**:
+  - Neighborhood upvoting, WhatsApp community sharing, and karma points progression.
+- **Notification Center**: Real-time alerts on ticket dispatches, ward milestones, and status changes.
 
-2. **Real-time Live Dispatch & SLA Tracking**:
-   - **4-Stage Resolution Journey**:
-     1. Complaint Registered (GPS geotag & geofence validated)
-     2. AI Duplicate & Severity Check (Assessing photo depth & road typology)
-     3. Municipal Engineer Dispatch (Field crew paver / compactor en route with vehicle registration & ETA)
-     4. Resolution & Verified Photo Proof (Citizen rating & before/after inspection)
-   - **Live Vehicle Radar**: Interactive tracking map showing field crew vehicle movement en route from the municipal depot.
-
-3. **Community Backing & Citizen Karma**:
-   - **Neighborhood Upvoting**: Residents upvote local reports to escalate urgency to *High Urgent* on the municipal dashboard.
-   - **Social Alerting**: One-click sharing to WhatsApp neighborhood groups with customized ticket reference links.
-   - **Civic Karma Progression**: Earn points (+20 for reporting, +5 for upvoting, +10 for feedback) and level up from *Level 3 Contributor* to *Civic Champion*.
-
-4. **Municipal Governance & Notifications**:
-   - Active Ward Zone tracking (Ward 174 HSR Layout, Ward 112 Indiranagar, Ward 151 Koramangala, Ward 84 Whitefield).
-   - Real-time notification center for crew dispatch alerts, inspection notes, and ticket closure.
+### 2. BBMP Central Command (Admin Suite)
+- **City Operations Overview (`admin.html#admin`)**:
+  - Live KPI cards: Total Active Complaints, Pending Review, In Progress, SLA Compliance Rate (94.2%).
+  - Monthly complaint trends & resolution velocity chart (June – November).
+  - Distribution by Status donut chart with live percentages.
+  - Recent municipal complaints feed with one-click quick inspection drawer.
+- **Complaint Management Matrix (`admin.html#admin/complaints`)**:
+  - Full-featured data table supporting 198 BBMP wards.
+  - Multi-filter matrix: Status tabs (All, Pending Review, In Progress, Resolved), Priority filter, Ward dropdown, and live search.
+  - Row-level inline status updater: change status to *Resolved* or *In Progress* directly, updating citizen tracking in real time.
+  - Multi-row bulk actions: Bulk resolve selected tickets with one click.
+  - Export to CSV functionality.
+  - Detailed Inspection Drawer: View high-resolution citizen evidence photo, AI confidence rating, and engineer assignment notes.
+- **Municipal Performance Analytics (`admin.html#admin/analytics`)**:
+  - Resolution velocity statistics (18.4 hrs average resolution across departments).
+  - Citizen satisfaction rating (4.8 / 5.0 ★).
+  - Ward Health & Incident Density index (HSR Layout, Bellandur, Indiranagar, Koramangala, Malleshwaram).
+- **Issue GIS Spatial Command & Heatmap (`admin.html#admin/map`)**:
+  - Full-screen interactive Leaflet map plotting active complaints across 198 BBMP wards.
+  - Color-coded category markers (Potholes, Solid Waste, Electrical, Water Mains, Drains).
+  - Live GPS field crew vehicle radar (`KA-01-EA-4821`, `KA-03-GA-1102`).
+  - Spatial layer toggles and one-click ward zoom controls (Ward 174 HSR, Ward 150 Bellandur).
+- **Departments & Field Crew Fleet Management (`admin.html#admin/departments`)**:
+  - Live workload status for 5 BBMP divisions: Road Infra, SWM, BESCOM, BWSSB, SWD.
+  - Vehicle telemetry table: Registration number, machinery type, assigned engineer, current location, and ping action.
+  - Emergency unit dispatch trigger.
+- **Central Command Settings & Governance Rules (`admin.html#admin/settings`)**:
+  - Configurable SLA resolution thresholds per category (12h to 48h).
+  - AI vision confidence threshold slider (default 95% auto-triage).
+  - Community upvote auto-escalation triggers.
+  - Push/SMS DLT gateway and Parichay GovSSO session timeouts.
+- **Administrator Secure Gateway (`admin.html#admin/login`)**:
+  - Parichay / DigiLocker GovSSO badge.
+  - Auto-fill demo credentials for Chief Municipal Engineer Er. Priya N.
 
 ---
 
 ## 📁 Source Code & Project Structure
 
-The project follows a standard modern frontend web architecture with all source code organized inside `src/`:
+All source code is cleanly organized inside `src/`:
 
 ```
 Civi/
-├── index.html                           # Root HTML entry point loading ./src/main.js
+├── index.html                           # Root Citizen App entry point (loads ./src/main.js)
+├── admin.html                           # Root BBMP Admin Command Center (loads ./src/admin/adminApp.js)
 ├── server.js                            # Zero-dependency local Node.js development server
 ├── package.json                         # NPM project scripts
 ├── README.md                            # Documentation & user guide
 │
-└── src/                                 # 📂 Application Source Code
-    ├── main.js                          # Application bootstrap & entry point
-    ├── router.js                        # Client-side hash router
-    │
-    ├── styles/                          # 🎨 Style Assets
-    │   └── main.css                     # Brand styling, animations & device simulator frame
-    │
-    ├── data/                            # 📊 Seed Data & Wards
-    │   └── civicData.js                 # Categories, Bangalore landmarks & complaints data
-    │
-    ├── services/                        # ⚙️ Core Application Services
-    │   ├── store.js                     # LocalStorage state persistence (complaints, karma, notifs)
-    │   └── mapService.js                # Leaflet map service, draggable pins & vehicle radar
-    │
-    ├── components/                      # 🧩 Reusable Components
-    │   ├── Header.js                    # Top municipal navigation bar
-    │   ├── BottomNav.js                 # Persistent bottom app navigation
-    │   └── Toast.js                     # Global toast notifications
-    │
-    ├── views/                           # 📱 Views & Template Modules
-    │   └── index.js                     # Views export index
-    │
-    └── screens/                         # 🖥️ Standalone HTML Prototype Screens
-        ├── 01-welcome-landing.html      # Hero banner, stats, how it works & get started
-        ├── 02-submission-success.html   # Ticket receipt (#CF-2026-00124) & SLA stepper
-        ├── 03-review-submit-step3.html  # Review summary & BBMP dispatch trigger
-        ├── 04-my-complaints.html        # Complaint list with search, tabs & sort
-        ├── 05-citizen-login.html        # Citizen Sign In, Register & Aadhaar OTP modal
-        ├── 06-report-details-step1.html # Category picker, description & camera upload
-        ├── 07-report-location-step2.html# Map pin dropper & address autocomplete
-        ├── 08-profile-notifications.html# Citizen profile, Karma points & notification center
-        └── 09-complaint-details-tracking.html # Live tracking map & crew vehicle radar
+├── src/                                 # 📂 Application Source Code
+│   ├── main.js                          # Citizen SPA controller & bootstrap
+│   ├── router.js                        # Client-side hash router with admin redirect support
+│   │
+│   ├── admin/                           # 🏛️ Admin Command Center Module
+│   │   ├── adminApp.js                  # Admin controller, matrix filters & bulk triage
+│   │   └── adminViews.js                # ES module templates for Overview, Matrix, Analytics, Login
+│   │
+│   ├── styles/                          # 🎨 Style Assets
+│   │   └── main.css                     # Brand styling, animations & device simulator frame
+│   │
+│   ├── data/                            # 📊 Seed Data & Wards
+│   │   └── civicData.js                 # Categories, BBMP wards, seed complaints (#CF-00124 to #CF-00129)
+│   │
+│   ├── services/                        # ⚙️ Core Application Services
+│   │   ├── store.js                     # LocalStorage state persistence with admin triage & bulk update
+│   │   └── mapService.js                # Leaflet map service, draggable pins & vehicle radar
+│   │
+│   ├── components/                      # 🧩 Reusable Citizen Components
+│   │   ├── Header.js                    # Top municipal navigation bar
+│   │   ├── BottomNav.js                 # Persistent bottom app navigation
+│   │   └── Toast.js                     # Toast notification service
+│   │
+│   ├── views/                           # 📄 Modular Citizen Views
+│   │   └── index.js                     # View registry
+│   │
+│   └── screens/                         # 📱 Standalone Prototype Templates
+│       ├── 01-welcome-landing.html
+│       ├── 02-submission-success.html
+│       ├── 03-review-submit-step3.html
+│       ├── 04-my-complaints.html
+│       ├── 05-citizen-login.html
+│       ├── 06-report-details-step1.html
+│       ├── 07-report-location-step2.html
+│       ├── 08-profile-notifications.html
+│       ├── 09-complaint-details-tracking.html
+│       ├── 10-admin-overview.html       # Prototype: Admin Overview Dashboard
+│       ├── 11-admin-login.html          # Prototype: Administrator Login
+│       ├── 12-admin-analytics.html      # Prototype: Performance Analytics
+│       ├── 13-admin-complaints.html     # Prototype: Complaint Management
+│       ├── 14-admin-map.html            # Prototype: Issue GIS Spatial Heatmap
+│       ├── 15-admin-departments.html   # Prototype: Departments & Field Crew Fleet
+│       ├── 16-admin-settings.html      # Prototype: Central Command Settings & Rules
+│       └── admin/                       # Named screen templates
+│           ├── overview.html
+│           ├── login.html
+│           ├── analytics.html
+│           ├── complaints.html
+│           ├── map.html
+│           ├── departments.html
+│           └── settings.html
 ```
 
 ---
 
-## 🚀 How to Run the Application
+## 🚀 Getting Started
 
-### Option 1: Direct Browser Launch
-Simply double-click [`index.html`](file:///c:/Users/shrut/OneDrive/Desktop/web%20dev/Student-project/Civi/index.html) in your file explorer to open it directly in Chrome, Edge, Safari, or Firefox.
+### Prerequisites
+Node.js (v16 or higher) installed on your system.
 
-### Option 2: Using the Included Node Server
+### Running Locally
 ```bash
+# Start the local development server
 npm start
-# or
+# or:
 node server.js
 ```
-Then navigate to: **`http://localhost:3000`**
+Open your browser at:
+- **Citizen Portal**: `http://localhost:3000/`
+- **Admin Command Center**: `http://localhost:3000/admin.html`
+
+### Quick Navigation Routes
+- `#/` — Welcome & Landing Screen
+- `#/report/step1` — Report Issue Step 1 (Photo & Details)
+- `#/report/step2` — Report Issue Step 2 (Interactive GPS Location Pin)
+- `#/report/step3` — Report Issue Step 3 (Review & Submit)
+- `#/report/success/:id` — Submission Confirmation
+- `#/complaint/:id` — Real-time Live Crew Tracking & Map
+- `#/my-complaints` — Citizen Reported Complaints Feed
+- `#/profile` — Citizen Impact & Karma Points
+- `#/notifications` — Civic Notifications Center
+- `admin.html#admin` — BBMP Central Command Overview
+- `admin.html#admin/complaints` — Complaint Management Matrix
+- `admin.html#admin/map` — Issue GIS Spatial Command & Heatmap
+- `admin.html#admin/departments` — Departments & Field Crew Management
+- `admin.html#admin/analytics` — Municipal Performance Analytics
+- `admin.html#admin/settings` — Central Command Settings & Governance Rules
+- `admin.html#admin/login` — Administrator Secure Login
+- `#/notifications` — Civic Notifications Center
+- `admin.html#admin` — BBMP Central Command Overview
+- `admin.html#admin/complaints` — Complaint Management Matrix
+- `admin.html#admin/analytics` — Municipal Performance Analytics
+- `admin.html#admin/login` — Administrator Secure Login
 
 ---
 
-## 📱 Presentation & Evaluation Tools
-
-When viewing `index.html` on a desktop monitor, a top floating control bar is available:
-- **Screen Dropdown**: Instantly jump to any of the 10 screen views for live demonstrations.
-- **Toggle View Button**: Switch between **Mobile Simulator Frame** (sleek smartphone bezel with status bar) and **Full Responsive View**.
-- **Reset Demo Button**: Resets the `localStorage` state back to clean default demo data.
-
----
-
-## 🛠️ Tech Stack & Design System
-
-- **Architecture**: Modular ES6+ JavaScript (`src/main.js`, `src/services/`, `src/data/`, `src/router.js`).
-- **Styling**: Tailwind CSS (Material Design 3 semantic color tokens with `#00513b` primary forest green, `#effdf3` organic surface, and `#48607d` secondary slate).
-- **Typography**: Google Fonts Inter.
-- **Icons**: Google Material Symbols Outlined.
-- **Maps**: Leaflet.js with OpenStreetMap tiles, custom SVG markers, and GPS Geolocation API.
-- **State Persistence**: Browser `localStorage` for offline complaint creation, upvoting, and karma points.
+## 👥 Demo Administrator Credentials
+- **Role**: Chief Municipal Engineer, BBMP Central Command
+- **Official Email**: `priya.n@bbmp.gov.in`
+- **Password**: `bbmp_command_2026`
+*(Quick auto-fill available on login screen via "Auto-Fill Chief Municipal Engineer Credentials")*

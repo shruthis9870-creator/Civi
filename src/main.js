@@ -54,6 +54,11 @@ export const App = {
   },
 
   navigate(hash) {
+    if (hash && (hash.startsWith('admin.html') || hash.startsWith('#/admin') || hash.startsWith('#admin'))) {
+      const target = hash.startsWith('admin.html') ? hash : `admin.html${hash.replace('#/', '#')}`;
+      window.location.href = target;
+      return;
+    }
     if (this.router) {
       this.router.navigate(hash);
     } else {

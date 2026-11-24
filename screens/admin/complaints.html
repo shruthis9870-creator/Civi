@@ -1,0 +1,781 @@
+<!-- CivicFix - Complaint Management -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary-container": "#9be9c6", "tertiary-container": "#006c49", "outline": "#6f7973", "primary-container": "#176b50", "on-background": "#121e18", "on-secondary-fixed-variant": "#304864", "tertiary-fixed": "#89f8c3", "on-primary-fixed-variant": "#00513b", "secondary-container": "#c3dcfe", "error-container": "#ffdad6", "background": "#effdf3", "primary-fixed": "#a4f3d0", "on-surface-variant": "#3f4944", "surface-container": "#e4f1e7", "surface": "#effdf3", "on-secondary-fixed": "#001d37", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#005236", "outline-variant": "#bec9c2", "tertiary": "#005136", "surface-container-low": "#e9f7ed", "secondary-fixed": "#d2e4ff", "on-primary-fixed": "#002116", "primary-fixed-dim": "#89d6b5", "surface-container-lowest": "#ffffff", "on-surface": "#121e18", "surface-container-highest": "#d8e6dc", "surface-variant": "#d8e6dc", "surface-dim": "#d0ddd4", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "on-secondary-container": "#49617e", "on-error": "#ffffff", "primary": "#00513b", "surface-tint": "#176b50", "inverse-surface": "#27332d", "secondary-fixed-dim": "#b0c8ea", "tertiary-fixed-dim": "#6cdba8", "inverse-primary": "#89d6b5", "on-tertiary-container": "#7fedb9", "inverse-on-surface": "#e6f4ea", "error": "#ba1a1a", "surface-bright": "#effdf3", "secondary": "#48607d", "on-error-container": "#93000a", "surface-container-high": "#deece2", "on-tertiary-fixed": "#002113" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-md": "1rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "margin": "2rem", "space-lg": "1.5rem" }, fontFamily: { "display-lg-mobile": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "label-md": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "headline-sm": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "data-metric": ["Inter"], "headline-lg-mobile": ["Inter"], "body-sm": ["Inter"], "title-md": ["Inter"] }, fontSize: { "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "700" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }], "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "500" }], "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }], "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-sm": ["20px", { lineHeight: "28px", letterSpacing: "-0.005em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0", fontWeight: "400" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0", fontWeight: "400" }], "data-metric": ["28px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }], "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "title-md": ["16px", { lineHeight: "24px", letterSpacing: "0", fontWeight: "600" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-gutter flex items-center gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">account_balance</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary font-bold tracking-tight leading-tight">CivicFix</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Central Command</span></div></div><div class="px-space-md py-space-xs"><div class="font-label-sm text-label-sm text-on-surface-variant px-space-sm py-space-xs uppercase tracking-wider font-semibold">Municipal Operations</div></div><nav class="px-space-sm space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md">Overview</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-primary-container text-on-primary font-semibold" data-path="complaints" href="#"><span class="material-symbols-outlined text-[20px]">assignment_late</span><span class="font-body-md text-body-md">Complaints</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="issue-map" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-body-md text-body-md">Issue Map</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="departments" href="#"><span class="material-symbols-outlined text-[20px]">groups</span><span class="font-body-md text-body-md">Departments</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="analytics" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-md text-body-md">Analytics</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="notifications" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="font-body-md text-body-md">Notifications</span></div><span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">3</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md">Settings</span></a></nav></div><div class="p-space-sm m-space-sm rounded-xl bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">Er. Priya N.</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Chief Municipal Eng.</span><span class="font-label-sm text-label-sm text-primary truncate">BBMP Command</span></div><a href="../../../index.html" class="p-1 rounded text-primary hover:bg-surface-container-high" title="Citizen View"><span class="material-symbols-outlined text-[18px]">smartphone</span></a><a class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="login.html" title="Logout"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-gutter shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md w-full max-w-lg"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-space-sm text-on-surface-variant text-[20px]">search</span><input class="w-full pl-10 pr-space-md py-space-xs rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all" placeholder="Search complaint ID, ward, road, citizen..." type="text"/></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-high text-primary whitespace-nowrap"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">BBMP Grid Live • 198 Wards Connected</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span class="font-label-md text-label-md">Today: Live Triage</span><span class="material-symbols-outlined text-[16px]">expand_more</span></div><div class="relative flex items-center"><a class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-[22px]">notifications</span></a><span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center font-bold">3</span></div><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">arrow_drop_down</span></div></div></header><main class="relative pt-16 w-full px-gutter bg-surface min-h-screen"><div class="flex flex-col w-full pb-margin">
+<!-- Top Command & Action Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md py-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Complaint Management</h1>
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          1,248 Total Documented Reports
+        </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+        Filter, triage, assign municipal departments, and track resolution workflows across all wards
+      </p>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-medium shadow-sm transition-all">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">download</span>
+        Export CSV
+      </button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-medium shadow-sm transition-all">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">description</span>
+        Generate Dispatch Report
+      </button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md font-semibold shadow-sm transition-all">
+<span class="material-symbols-outlined text-[18px]">add_call</span>
+        Log Manual / Helpline Call
+      </button>
+</div>
+</div>
+<!-- Operational Metric Ribbon -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm mb-space-md">
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Unassigned Triage</p>
+<p class="font-data-metric text-data-metric text-error font-bold mt-0.5">38</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-error-container text-[20px]">notification_important</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">In Progress Workflows</p>
+<p class="font-data-metric text-data-metric text-secondary font-bold mt-0.5">241</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-[20px]">engineering</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Near SLA Breach (<4h)</p>
+<p class="font-data-metric text-data-metric text-[#9A6214] font-bold mt-0.5">14</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-[rgba(233,162,59,0.15)] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#9A6214] text-[20px]">hourglass_top</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Resolved Today</p>
+<p class="font-data-metric text-data-metric text-primary font-bold mt-0.5">89</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed-variant text-[20px]">task_alt</span>
+</div>
+</div>
+</div>
+<!-- Search & Multi-Filter Control Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm mb-space-sm flex flex-col gap-space-sm">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-space-xs">
+<!-- Universal Search Field -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-10 pr-space-md py-2 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search by Complaint ID #CF-..., citizen name, keyword, or ward..." type="text"/>
+</div>
+<!-- Quick Reset Button -->
+<button class="inline-flex items-center justify-center gap-1 px-space-sm py-2 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+        Reset Filters
+      </button>
+</div>
+<!-- Filter Dropdown Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-xs pt-space-xs">
+<!-- Category Filter -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Issue Category</label>
+<div class="relative flex items-center">
+<select class="w-full appearance-none pl-space-sm pr-8 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest transition-all cursor-pointer">
+<option>All Categories (All 14)</option>
+<option>Potholes & Road Craters</option>
+<option>Solid Waste / Garbage Dumps</option>
+<option>Streetlights & Luminaires</option>
+<option>Water Supply & Main Leaks</option>
+<option>Drainage & Sewage Overflow</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Status Filter -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Triage Status</label>
+<div class="relative flex items-center">
+<select class="w-full appearance-none pl-space-sm pr-8 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest transition-all cursor-pointer">
+<option>All Statuses</option>
+<option>Pending Verification</option>
+<option>Under Review</option>
+<option>Dispatched to Field</option>
+<option>In Progress</option>
+<option>Resolved</option>
+<option>Reopened</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Priority Filter -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Priority Rank</label>
+<div class="relative flex items-center">
+<select class="w-full appearance-none pl-space-sm pr-8 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest transition-all cursor-pointer">
+<option>All Priorities</option>
+<option>Critical (P0 / Red)</option>
+<option>High (P1 / Orange)</option>
+<option>Medium (P2 / Yellow)</option>
+<option>Low (P3 / Standard)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Ward / Zone Filter -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Ward & Zone</label>
+<div class="relative flex items-center">
+<select class="w-full appearance-none pl-space-sm pr-8 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest transition-all cursor-pointer">
+<option>All Wards (198 Connected)</option>
+<option>Ward 174 - HSR Layout</option>
+<option>Ward 85 - Koramangala</option>
+<option>Ward 150 - Bellandur Outer</option>
+<option>Ward 112 - Domlur Flyover</option>
+<option>Ward 64 - Malleshwaram</option>
+<option>Ward 192 - Begur Lake Area</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Date Range Selector -->
+<div class="relative col-span-2 sm:col-span-1">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Date Window</label>
+<button class="w-full flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm hover:bg-surface-container-high transition-colors">
+<span class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">calendar_month</span>
+            Past 7 Days
+          </span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bulk Action Bar (Active with selection) -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm px-space-md py-2.5 rounded-xl bg-primary-container text-on-primary shadow-sm mb-space-sm transition-all">
+<div class="flex items-center gap-space-sm">
+<div class="w-5 h-5 rounded bg-on-primary-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold text-on-primary">Selected: 2 complaints</span>
+<span class="hidden sm:inline font-body-sm text-body-sm text-on-primary-container">| Quick triage dispatch pipeline active</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary font-label-md text-label-md font-semibold transition-all">
+<span class="material-symbols-outlined text-[16px]">domain</span>
+        Assign Department
+      </button>
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary font-label-md text-label-md font-semibold transition-all">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+        Set Priority to High
+      </button>
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-on-primary-container text-primary-container hover:bg-primary-fixed font-label-md text-label-md font-bold transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">autorenew</span>
+        Bulk Status: In Progress
+      </button>
+<button class="p-1 rounded text-on-primary/70 hover:text-on-primary hover:bg-surface-container-lowest/10 transition-colors" title="Deselect all">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Primary Complaint Registry Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-3 w-10 text-center">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+</th>
+<th class="py-3 px-3">Complaint ID</th>
+<th class="py-3 px-3 min-w-[220px]">Issue & Visual Evidence</th>
+<th class="py-3 px-3">Category</th>
+<th class="py-3 px-3 min-w-[160px]">Location & Ward</th>
+<th class="py-3 px-3 min-w-[140px]">Reporter</th>
+<th class="py-3 px-3 min-w-[140px]">AI Triage & Risk</th>
+<th class="py-3 px-3">Department</th>
+<th class="py-3 px-3">Priority</th>
+<th class="py-3 px-3">Status</th>
+<th class="py-3 px-3 min-w-[130px]">SLA & Submitted</th>
+<th class="py-3 px-3 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface font-body-sm text-body-sm">
+<!-- ROW 1: Checked (Part of bulk selection) -->
+<tr class="bg-primary-fixed/20 hover:bg-primary-fixed/30 transition-colors">
+<td class="py-3 px-3 text-center align-middle">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-3 font-semibold text-primary font-mono whitespace-nowrap">
+              #CF-2026-00124
+            </td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<img class="w-11 h-11 rounded-lg object-cover flex-shrink-0 shadow-sm" data-alt="Close up photograph of a severe deep circular road pothole crater with broken jagged asphalt and protruding gravel on a busy Bengaluru metropolitan street under direct morning daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa6bsf-sw60gLMnhOF-pqBDhK-H9lVAFMe1FrVk8F-09VVEzVz-cSGluXE39Q1zEQiWOBY6JUHaUZqI_rL8aYfIR-IvdS-Aa2AaIwR5GzuJcDDPzemFf6GKbsfL5jrmdv_WMi8lDvbBH9oRRVmOllp67NeIfYzzERLxMIKVW9oixsZtkUtAlZzfyNKZh7-hXFaaGMcQTYkMVfynkTOnf4Xqi-auYEkbEyW8mkT60sN"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate max-w-[200px]" title="Deep Crater on 14th Main Cross">Deep Crater on 14th Main</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> 2 Photos Attached
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-secondary">broken_image</span>
+                Roads & Infra
+              </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate max-w-[150px]">19th Main Rd, Sector 4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ward 174 HSR Layout</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate">Rahul Sharma</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">+91 98450 21088</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[15px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">98% Pothole</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold w-max">
+                  High Hazard
+                </span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-medium text-on-surface">BBMP Road Cell</span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-error font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+                Critical
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                In Progress
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Today, 08:30 AM</span>
+<div class="flex items-center gap-1 text-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span>4h 15m SLA left</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary hover:bg-primary font-label-sm text-label-sm font-semibold transition-colors">
+                  Assign
+                </button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Quick Preview">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Checked (Part of bulk selection) -->
+<tr class="bg-primary-fixed/20 hover:bg-primary-fixed/30 transition-colors">
+<td class="py-3 px-3 text-center align-middle">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-3 font-semibold text-primary font-mono whitespace-nowrap">
+              #CF-2026-00125
+            </td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<img class="w-11 h-11 rounded-lg object-cover flex-shrink-0 shadow-sm" data-alt="Public overflow municipal dumpster overflowing with green organic garbage bags, cardboard waste, and discarded debris onto pedestrian sidewalk curbside in Bengaluru." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsIohdGRGapZD9FqK8XXFUcQxOqTHSpVTOF6EI2BiD4kOvw1_NS1p0BZ8Kn7tH2nEbwhNw9dUEbZWtBtWHXZ3CpBuL2gpd2R7ShdUAxykC7FduZMXrUTPtATjU80FhMVO-6fFPeiVKeWr9uFMwltsyNdIo7LqhexaB4dD7Y9LB7mhXKytB3VGnGM0EQiHf08O1iP4i2h2tklb2Pd6boyYB8VSlwLhAXKYzAPHTsa1n"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate max-w-[200px]" title="Commercial Garbage Dumping">Commercial Garbage Pile</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> 1 Photo Attached
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-tertiary">delete_sweep</span>
+                Solid Waste
+              </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate max-w-[150px]">80ft Road, 4th Block</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ward 85 Koramangala</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate">Ananya Deshmukh</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">+91 97312 44901</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[15px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">94% Bio-Waste</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-[rgba(233,162,59,0.15)] text-[#9A6214] font-label-sm text-label-sm font-semibold w-max">
+                  Health Risk
+                </span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-medium text-on-surface">BBMP SWM Dept</span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[rgba(233,162,59,0.15)] text-[#9A6214] font-label-sm text-label-sm font-bold">
+                High
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[rgba(233,162,59,0.15)] text-[#9A6214] font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#9A6214]"></span>
+                Pending Review
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Today, 09:12 AM</span>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span>11h remaining</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary hover:bg-primary font-label-sm text-label-sm font-semibold transition-colors">
+                  Assign
+                </button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Quick Preview">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Regular Row -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3 text-center align-middle">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-3 font-semibold text-primary font-mono whitespace-nowrap">
+              #CF-2026-00126
+            </td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<img class="w-11 h-11 rounded-lg object-cover flex-shrink-0 shadow-sm" data-alt="High pressure water burst pipe flooding residential street corner with clean potable water streaming into stormwater channel in Bangalore suburb." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeSw__-dFKhp_ykGlOnTj2YQh6qjgKB0Re51PtH8mdDbQQhu83JlZHmBZDkpQhu7fXxt2v-KsgMFH8yC13n26E2_7ywnT0XfGKDYMvtjV47GMVfOlDGiomdPJQq47qDAgnY3gERszTGMSNCIdgmaozijD_4KiXPSnS2PYuY-zE0IEnCd5EAkqs8gXBTfAqQ6iSmjiMKjxPg7QMDJAFkqV_26iRBXSuwbtBqlhlg2eb"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate max-w-[200px]" title="Main Pipeline Rupture">Water Main Rupture</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span> Video & 3 Photos
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+                Water Supply
+              </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate max-w-[150px]">Sarjapur Main Rd</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ward 150 Bellandur</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate">Vikas Manian</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">+91 99801 12389</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[15px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">99% Main Pipe</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold w-max">
+                  High Hazard
+                </span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-medium text-on-surface">BWSSB Central</span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-error font-label-sm text-label-sm font-bold">
+                Critical
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Dispatched
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Today, 06:45 AM</span>
+<div class="flex items-center gap-1 text-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span>1h 40m SLA left</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold transition-colors">
+                  Details
+                </button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Quick Preview">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Regular Row (Streetlight) -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3 text-center align-middle">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-3 font-semibold text-primary font-mono whitespace-nowrap">
+              #CF-2026-00127
+            </td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<img class="w-11 h-11 rounded-lg object-cover flex-shrink-0 shadow-sm" data-alt="Urban evening photo of a bent metallic streetlight pole with flickering dead sodium vapor lamp hanging loose over an avenue in Bengaluru." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRfkYIoAfy1c4BtrK-pKOnux-M9qssfzelZMf0psfq4v8hLSV9zpnlDJq-Z9Ju0Tz4fnKuoshXgGP6kanbiUCKPsn4D1BmDMiVna5ROZjf4fPoIQJN_zkirGewW3fuFTp6PVjQSDzHuJicyhs42WBchmntc9uBXeUJ9pdPKot8jETip0kSbd-cQvWJSAmAnvhRDrRlgQCYoLPWk18hgs2oixpOhHnlAPtr7oBHvjZy"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate max-w-[200px]" title="Damaged Streetlight Pole">Damaged Pole #L-42</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> 1 Photo Attached
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+                Streetlights
+              </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate max-w-[150px]">HAL 2nd Stage, Indiranagar</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ward 112 Domlur</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate">Deepa K. Rao</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">+91 94481 77204</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[15px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">88% Pole Tilt</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold w-max">
+                  Moderate
+                </span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#9A6214]"></span>
+<span class="font-medium text-on-surface">BESCOM E-Cell</span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-bold">
+                Medium
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Under Review
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Yesterday, 18:20</span>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span>18h remaining</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary hover:bg-primary font-label-sm text-label-sm font-semibold transition-colors">
+                  Assign
+                </button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Quick Preview">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5: Drainage Overflow -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3 text-center align-middle">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-3 font-semibold text-primary font-mono whitespace-nowrap">
+              #CF-2026-00128
+            </td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<img class="w-11 h-11 rounded-lg object-cover flex-shrink-0 shadow-sm" data-alt="Stormwater drain blocked with plastic bottles, silt and wastewater overflowing across pedestrian walkway in an urban residential area." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_lC62x0RWtsOcbEPHSOT_dqCWabS0r-NLAPZF3SwMDiIQlJUHvjNyHvAdxTTgyp14yyc7zKt2nbiBvhCyRtGiPe1KcBuqt_e-79miUwskqrESUtdvslC-kWEMMDMk292rpbzwL1OTOgKZMJu9t9CKL4nuvSPhJD413HZMl-qBzQDRB12caVNOPYvvQCt9EIREFrtTjUyEkUPBD83dt_lptAUMQGbTnfjtH8g8RdRm"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate max-w-[200px]" title="Blocked Sump & Drainage">Sewage Backflow Sump</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> 3 Photos Attached
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">waves</span>
+                Storm Drainage
+              </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate max-w-[150px]">11th Cross, Sampige Rd</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ward 64 Malleshwaram</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate">Raghavendra Bhat</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">+91 94803 55219</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[15px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">96% Drain Silt</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-[rgba(233,162,59,0.15)] text-[#9A6214] font-label-sm text-label-sm font-semibold w-max">
+                  High Severity
+                </span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-medium text-on-surface">BBMP Storm Drain</span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[rgba(233,162,59,0.15)] text-[#9A6214] font-label-sm text-label-sm font-bold">
+                High
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                In Progress
+              </span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">23 Oct, 16:15</span>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span>8h remaining</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold transition-colors">
+                  Details
+                </button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Quick Preview">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 6: Resolved Case -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3 text-center align-middle">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-3 font-semibold text-primary font-mono whitespace-nowrap">
+              #CF-2026-00129
+            </td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<img class="w-11 h-11 rounded-lg object-cover flex-shrink-0 shadow-sm" src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=120&q=80" alt="Freshly resurfaced road asphalt"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate max-w-[200px]" title="Road Resurfacing Completed">Pothole Bitumen Patch</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Verified by Engineer
+</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">construction</span>
+Road Infra
+</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate max-w-[150px]">5th Main, 17th Cross</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ward 150 Bellandur</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface truncate">Deepika Rao</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">+91 98860 11428</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[15px]">verified</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">99% Repaired</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-semibold w-max">
+Resolved
+</span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium text-on-surface">EE Er. M. Nataraj</span>
+</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-bold">
+Medium
+</span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+Resolved
+</span>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">22 Oct, 11:30</span>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">check</span>
+<span>Closed in 18h</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold transition-colors">
+Details
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Quick Preview">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Table Pagination -->
+<div class="p-space-md border-t border-surface-container flex items-center justify-between text-label-md text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span>Showing <span class="font-semibold text-on-surface">1 - 6</span> of <span class="font-semibold text-on-surface">1,248</span> complaints</span>
+<select class="ml-2 text-label-sm rounded border border-outline-variant bg-surface-container-lowest px-2 py-1 text-on-surface focus:outline-none">
+<option>10 per page</option>
+<option selected>25 per page</option>
+<option>50 per page</option>
+</select>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center transition-colors">1</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium flex items-center justify-center transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium flex items-center justify-center transition-colors">3</button>
+<span class="px-1 text-on-surface-variant text-label-sm font-bold">...</span>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium flex items-center justify-center transition-colors">50</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!-- CivicFix - Administrator Login -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_blank" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary-container": "#9be9c6", "tertiary-container": "#006c49", "outline": "#6f7973", "primary-container": "#176b50", "on-background": "#121e18", "on-secondary-fixed-variant": "#304864", "tertiary-fixed": "#89f8c3", "on-primary-fixed-variant": "#00513b", "secondary-container": "#c3dcfe", "error-container": "#ffdad6", "background": "#effdf3", "primary-fixed": "#a4f3d0", "on-surface-variant": "#3f4944", "surface-container": "#e4f1e7", "surface": "#effdf3", "on-secondary-fixed": "#001d37", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#005236", "outline-variant": "#bec9c2", "tertiary": "#005136", "surface-container-low": "#e9f7ed", "secondary-fixed": "#d2e4ff", "on-primary-fixed": "#002116", "primary-fixed-dim": "#89d6b5", "surface-container-lowest": "#ffffff", "on-surface": "#121e18", "surface-container-highest": "#d8e6dc", "surface-variant": "#d8e6dc", "surface-dim": "#d0ddd4", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "on-secondary-container": "#49617e", "on-error": "#ffffff", "primary": "#00513b", "surface-tint": "#176b50", "inverse-surface": "#27332d", "secondary-fixed-dim": "#b0c8ea", "tertiary-fixed-dim": "#6cdba8", "inverse-primary": "#89d6b5", "on-tertiary-container": "#7fedb9", "inverse-on-surface": "#e6f4ea", "error": "#ba1a1a", "surface-bright": "#effdf3", "secondary": "#48607d", "on-error-container": "#93000a", "surface-container-high": "#deece2", "on-tertiary-fixed": "#002113" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-md": "1rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "margin": "2rem", "space-lg": "1.5rem" }, fontFamily: { "display-lg-mobile": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "label-md": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "headline-sm": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "data-metric": ["Inter"], "headline-lg-mobile": ["Inter"], "body-sm": ["Inter"], "title-md": ["Inter"] }, fontSize: { "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "700" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }], "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "500" }], "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }], "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-sm": ["20px", { lineHeight: "28px", letterSpacing: "-0.005em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0", fontWeight: "400" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0", fontWeight: "400" }], "data-metric": ["28px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }], "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "title-md": ["16px", { lineHeight: "24px", letterSpacing: "0", fontWeight: "600" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex items-center justify-center p-gutter"><main class="w-full flex items-center justify-center"><div class="flex flex-col w-full">
+<div class="w-full max-w-6xl mx-auto my-auto py-space-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+<!-- Left Panel: Municipal Command Hero -->
+<div class="lg:col-span-5 bg-gradient-to-br from-primary via-primary-container to-tertiary text-on-primary p-space-xl flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle Ambient Background Glow and Pattern -->
+<div class="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-primary-fixed/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-tertiary-fixed/10 blur-2xl pointer-events-none"></div>
+<!-- Top Gov Brand Header -->
+<div class="relative z-10 space-y-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest/15 backdrop-blur flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-headline-sm" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm tracking-tight block text-on-primary">CivicFix</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container block">GovTech Suite</span>
+</div>
+</div>
+<!-- Real-time Status Badge -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest/10 backdrop-blur text-primary-fixed">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-medium">NIC Compliant</span>
+</div>
+</div>
+<!-- Municipal Entity & Mission -->
+<div class="pt-space-md space-y-space-sm">
+<div class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded bg-surface-container-lowest/10 text-on-primary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-body-sm">security</span>
+<span>Encrypted Municipal Intranet • Tier IV</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold leading-snug text-on-primary">
+              Bruhat Bengaluru Mahanagara Palike (BBMP)
+            </h2>
+<p class="font-title-md text-title-md text-primary-fixed-dim">
+              Municipal Operations &amp; Command Center
+            </p>
+<p class="font-body-md text-body-md text-surface-container-high/90 pt-space-xs leading-relaxed">
+              Report it. Track it. Fix it. Unified Civic Infrastructure Administration across 8 city zones and arterial municipal corridors.
+            </p>
+</div>
+</div>
+<!-- System Telemetry Stats Bento Card -->
+<div class="relative z-10 pt-space-xl space-y-space-md">
+<div class="bg-surface-container-lowest/10 backdrop-blur rounded-lg p-space-md space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">vital_signs</span>
+                Live Grid Telemetry
+              </span>
+<span class="font-label-sm text-label-sm text-surface-variant font-medium">Updated 14s ago</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm text-center pt-1">
+<div class="bg-surface-container-lowest/10 rounded p-space-xs">
+<div class="font-data-metric text-data-metric text-on-primary font-bold">198</div>
+<div class="font-label-sm text-label-sm text-surface-container-high">Active Wards</div>
+</div>
+<div class="bg-surface-container-lowest/10 rounded p-space-xs">
+<div class="font-data-metric text-data-metric text-primary-fixed font-bold">142</div>
+<div class="font-label-sm text-label-sm text-surface-container-high">Live Field Teams</div>
+</div>
+<div class="bg-surface-container-lowest/10 rounded p-space-xs">
+<div class="font-data-metric text-data-metric text-tertiary-fixed font-bold">3.2h</div>
+<div class="font-label-sm text-label-sm text-surface-container-high">Avg Triage SLA</div>
+</div>
+</div>
+<!-- Mini Sparkline Activity Visualization -->
+<div class="pt-space-xs">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-surface-variant mb-1">
+<span>Shift Ticket Clearance Capacity</span>
+<span class="text-primary-fixed font-semibold">91.4% Target</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-lowest/20 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-fixed to-tertiary-fixed rounded-full w-[91%]"></div>
+</div>
+</div>
+</div>
+<!-- Official Identification Footnote -->
+<div class="flex items-center gap-space-sm text-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-title-md text-primary-fixed">verified_user</span>
+<span>Government of Karnataka • Digital Municipal Framework</span>
+</div>
+</div>
+</div>
+<!-- Right Panel: Authentication Form -->
+<div class="lg:col-span-7 p-space-xl lg:p-12 flex flex-col justify-between bg-surface-container-lowest">
+<div>
+<!-- Header -->
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Authorized Personnel Only
+              </div>
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold pt-1">
+                Administrative Access Portal
+              </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Sign in with your official municipal officer credentials or government SSO
+              </p>
+</div>
+<div class="hidden sm:flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">PORTAL_REV_4.12</span>
+<span class="font-label-sm text-label-sm text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">hub</span>
+                BBMP-SEC-VPN
+              </span>
+</div>
+</div>
+<!-- Credentials Form -->
+<form onsubmit="event.preventDefault(); window.location.href='overview.html';" class="mt-space-lg space-y-space-md" id="admin-login-form" onsubmit="event.preventDefault();">
+<!-- Government Official Email Field -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="officer-email">
+                Official Municipal Email Address
+              </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-headline-sm">badge</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low rounded-lg text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" id="officer-email" name="email" placeholder="officer.name@bbmp.gov.in" required="" type="email" value="m.nataraj@bbmp.gov.in">
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Requires designated @bbmp.gov.in, @karnataka.gov.in, or @nic.in domain</p>
+</div>
+<!-- Password Field -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="officer-password">
+                  Municipal Security Passcode / Token
+                </label>
+<a class="font-label-md text-label-md text-primary font-semibold hover:underline" href="#forgot">
+                  Forgot Municipal Password?
+                </a>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-headline-sm">lock</span>
+<input class="w-full pl-10 pr-12 py-2.5 bg-surface-container-low rounded-lg text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" id="officer-password" name="password" placeholder="Enter authorized password" required="" type="password" value="MunicipalKRD$991#">
+<button aria-label="Toggle password visibility" class="absolute right-3 p-1 text-outline hover:text-on-surface rounded focus:outline-none" id="toggle-password" type="button">
+<span class="material-symbols-outlined text-headline-sm" id="pwd-icon">visibility</span>
+</button>
+</div>
+<!-- Password Strength Meter Component -->
+<div class="pt-1 space-y-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Security Complexity</span>
+<span class="text-primary font-semibold" id="strength-label">Strong (Compliant)</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5 h-1.5 w-full">
+<div class="h-full bg-primary rounded-full"></div>
+<div class="h-full bg-primary rounded-full"></div>
+<div class="h-full bg-primary rounded-full"></div>
+<div class="h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Options Row -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer focus:ring-0" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface">Remember official workstation</span>
+</label>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-body-sm text-primary">schedule</span>
+<span>Session duration: 8 hrs</span>
+</div>
+</div>
+<!-- Primary Action CTA -->
+<div class="pt-space-xs space-y-space-sm">
+<button class="w-full py-3 px-space-md bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md rounded-lg shadow-md transition-all flex items-center justify-center gap-2 group cursor-pointer" type="submit" onclick="window.location.href='overview.html';">
+<span class="material-symbols-outlined text-title-md transition-transform group-hover:scale-110">shield_lock</span>
+<span>Secure Sign In to Command Center</span>
+</button>
+<!-- Alternate SSO Divider -->
+<div class="relative py-2 flex items-center justify-center">
+<div class="w-full bg-surface-container-high h-px"></div>
+<span class="absolute px-3 bg-surface-container-lowest font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">
+                  Or authenticate with
+                </span>
+</div>
+<!-- Government Single Sign-On Option -->
+<button class="w-full py-2.5 px-space-md bg-surface-container-low hover:bg-surface-container text-secondary font-title-md text-title-md rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-headline-sm text-secondary">domain_verification</span>
+<span>Sign in with Parichay / DigiLocker GovSSO</span>
+</button>
+</div>
+</form><div class="mt-space-md border border-primary-container/30 bg-surface-container-low/60 rounded-xl p-space-md shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between pb-1 border-b border-surface-container-high">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-body-sm text-primary">verified_user</span>
+<span>MFA Security Challenge • Step 2 of 2</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>Dynamic IP Detected • 2FA Enforcement Active</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+A 6-digit one-time passcode has been dispatched to your official registered mobile ending in <strong class="text-on-surface font-semibold">•••• 8492</strong> (Er. M. Nataraj, EE - Ward 142) and <span class="text-primary font-semibold">Parichay Authenticator App</span>.
+</p>
+<div class="flex items-center justify-between gap-2 py-1">
+<div class="w-11 h-12 rounded-lg bg-surface-container-lowest border-2 border-primary text-headline-sm font-bold flex items-center justify-center text-on-surface shadow-sm">5</div>
+<div class="w-11 h-12 rounded-lg bg-surface-container-lowest border-2 border-primary text-headline-sm font-bold flex items-center justify-center text-on-surface shadow-sm">8</div>
+<div class="w-11 h-12 rounded-lg bg-surface-container-lowest border-2 border-primary text-headline-sm font-bold flex items-center justify-center text-on-surface shadow-sm">2</div>
+<div class="w-11 h-12 rounded-lg bg-surface-container-lowest border-2 border-primary text-headline-sm font-bold flex items-center justify-center text-on-surface shadow-sm">4</div>
+<div class="w-11 h-12 rounded-lg bg-surface-container-lowest border-2 border-primary text-headline-sm font-bold flex items-center justify-center text-on-surface shadow-sm">9</div>
+<div class="w-11 h-12 rounded-lg bg-surface-container-lowest border-2 border-primary/40 border-dashed text-headline-sm font-bold flex items-center justify-center text-outline animate-pulse">•</div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm pt-0.5">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm text-primary">timer</span>
+Resend OTP via SMS / Voice Call in <span class="font-semibold text-primary font-mono">00:42s</span>
+</span>
+<button type="button" class="text-primary font-semibold hover:underline flex items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-body-sm">face</span>
+Switch to GovFace ID Biometrics
+</button>
+</div>
+<div class="pt-1 space-y-2">
+<button type="button" class="w-full py-2.5 px-space-md bg-primary-container hover:bg-primary text-on-primary font-title-md text-title-md rounded-lg shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-title-md">lock_open</span>
+<span>Verify &amp; Authorize Session</span>
+</button>
+<div class="flex items-center justify-between px-1">
+<button type="button" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface flex items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-body-sm">key</span>
+Cancel / Use Hardware Security Key
+</button>
+<span class="font-label-sm text-label-sm text-outline">BBMP Trust Level: High</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Security Footer -->
+<div class="mt-space-lg pt-space-md bg-surface-container-low rounded-lg p-space-sm flex items-start gap-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-headline-sm text-primary flex-shrink-0">gavel</span>
+<div class="font-body-sm text-body-sm leading-snug space-y-0.5">
+<span class="font-semibold text-on-surface block">Statutory Notice &amp; Audit Trail</span>
+<p>
+              256-bit AES Encryption. Access restricted exclusively to authorized BBMP, Smart City Mission &amp; Municipal Engineering Personnel. All logins, IP coordinates, and dispatch operations are persistently audited under the Information Technology Act.
+            </p>
+</div>
+</div><div class="mt-space-sm flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-body-sm text-primary">contact_support</span>
+<span>Locked Account or Token Assistance?</span>
+<a href="tel:1533" class="font-semibold text-primary hover:underline">Contact BBMP NIC Desk: 1533 Ext. 4</a>
+</div>
+<span class="text-outline font-label-sm text-label-sm hidden sm:inline">Toll-Free 24x7</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple Password Toggle Interaction
+  const pwdInput = document.getElementById('officer-password');
+  const toggleBtn = document.getElementById('toggle-password');
+  const pwdIcon = document.getElementById('pwd-icon');
+
+  if (toggleBtn && pwdInput && pwdIcon) {
+    toggleBtn.addEventListener('click', () => {
+      const isPassword = pwdInput.getAttribute('type') === 'password';
+      pwdInput.setAttribute('type', isPassword ? 'text' : 'password');
+      pwdIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+    });
+  }
+</script></main>
+
+</body></html>
