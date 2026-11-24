@@ -1,0 +1,293 @@
+<!-- CivicFix - Select Issue Location (Step 2) -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#6f7973",
+          "primary": "#00513b",
+          "on-primary-fixed-variant": "#00513b",
+          "secondary-fixed": "#d2e4ff",
+          "on-surface-variant": "#3f4944",
+          "tertiary": "#005136",
+          "on-secondary": "#ffffff",
+          "surface-container-low": "#e9f7ed",
+          "secondary-fixed-dim": "#b0c8ea",
+          "tertiary-fixed": "#89f8c3",
+          "surface-container-high": "#deece2",
+          "primary-fixed-dim": "#89d6b5",
+          "primary-container": "#176b50",
+          "error": "#ba1a1a",
+          "secondary": "#48607d",
+          "on-secondary-container": "#49617e",
+          "surface-tint": "#176b50",
+          "on-error": "#ffffff",
+          "error-container": "#ffdad6",
+          "inverse-primary": "#89d6b5",
+          "on-tertiary-fixed": "#002113",
+          "on-secondary-fixed": "#001d37",
+          "primary-fixed": "#a4f3d0",
+          "surface-dim": "#d0ddd4",
+          "tertiary-fixed-dim": "#6cdba8",
+          "inverse-surface": "#27332d",
+          "on-secondary-fixed-variant": "#304864",
+          "on-tertiary-fixed-variant": "#005236",
+          "on-tertiary-container": "#7fedb9",
+          "on-primary-fixed": "#002116",
+          "on-background": "#121e18",
+          "surface-container-highest": "#d8e6dc",
+          "outline-variant": "#bec9c2",
+          "on-primary-container": "#9be9c6",
+          "on-primary": "#ffffff",
+          "background": "#effdf3",
+          "surface": "#effdf3",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "on-surface": "#121e18",
+          "tertiary-container": "#006c49",
+          "surface-variant": "#d8e6dc",
+          "surface-bright": "#effdf3",
+          "inverse-on-surface": "#e6f4ea",
+          "surface-container": "#e4f1e7",
+          "on-error-container": "#93000a",
+          "secondary-container": "#c3dcfe"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "margin": "2rem",
+          "margin-mobile": "1rem",
+          "space-xs": "0.25rem",
+          "space-xl": "2rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem",
+          "gutter": "1.5rem"
+        },
+        "fontFamily": {
+          "display-lg": ["Inter"],
+          "data-metric": ["Inter"],
+          "headline-lg": ["Inter"],
+          "display-lg-mobile": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-sm": ["Inter"],
+          "headline-lg-mobile": ["Inter"],
+          "label-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "label-md": ["Inter"],
+          "title-md": ["Inter"]
+        },
+        "fontSize": {
+          "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "data-metric": ["28px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+          "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+          "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+          "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+          "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Go back" class="w-11 h-11 -ml-1 flex items-center justify-center rounded-full text-on-surface hover:text-primary transition-colors focus:outline-none" onclick="window.location.href='06-report-details-step1.html'"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="CivicFix Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCAlavZ3zl3CViJ2ycJIhOUyB2HUKO7eMe6bvN73CWytuqj02I307KvBZkmPBJxC7YH36E0oqBEbIRUplk9_rkbzewrsAN3ezumhMPsNtzYOitbeStC_jqsDRHxg6GDUudIKBzFYZJRVi9Oznua5WDocjElM8EWlh3uGS6LAUXiavimyYrLuC7JMwCoEpotHzM3dLiVu42n7gNzF1IdTnftFttOaw0VYaWjGT323B-wJA"/><h1 class="font-title-md text-title-md font-semibold text-on-surface truncate max-w-[170px]">Report Issue</h1></div><div class="flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKTCz-xmjsYL_PwnnmsNkscS5mC-LQPCa63BE0VSYIVMnTHw6oma4Fkb3xl2aN8-1R9QoHKgiLX8Ln04tGaK9RvUypTlBopq4vkjZrP_dUYly8gENzXlFGEFOYeji6PTx6IOkgT-XCavoE2vfC6nuZLFGbb9CktLxdQZtdciqvPin8KMo1Yp0ptj3vDlV9EIEsZYsoAwl7rAteW3rmzIpOuIXGHK7FSETk4Mg6QIUL"/></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full relative">
+<!-- Interactive Map Viewport -->
+<div class="relative w-full h-[548px] overflow-hidden bg-surface-container select-none">
+<!-- Map Background Rendering Engine -->
+<div class="w-full h-full bg-cover bg-center" data-location="19th Main Road, Sector 2, HSR Layout, Bengaluru" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGgyIzYjJQLzI8Z_WmtcAqWGaY3UjZUmdFfcIoSWbLDB-U9WlOa-KGojjWmBUH1lddxZtZCgfjS59638Ho-QKmLU-TjIlI474ONMprCth-IQbmDmARDYpEHvSI9vrKqdUy-XahzSORvgegSRlNS8i2g2VBb0jC9U9fpBxqeDVX-3Tdt13Z5XKLHnrFMtJJuuUMEIA1hMXMQ4_AdTshhrcV2OoLZMimaCd30PmrPC2U')"></div>
+<!-- Map Top Sub-Header & Dynamic Search Float -->
+<div class="absolute top-0 inset-x-0 p-gutter-mobile flex flex-col gap-space-xs pointer-events-none">
+<!-- Step Indicator & Progress Ribbon -->
+<div class="flex items-center justify-between pointer-events-auto bg-surface/90 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-sm">
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Step 2 of 3</span>
+<span class="text-on-surface-variant opacity-40">•</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Pin Accuracy Target</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-low text-primary text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">my_location</span>
+<span>±3m</span>
+</div>
+</div>
+<!-- Quick Search Bar Pill -->
+<div class="pointer-events-auto flex items-center bg-surface-container-lowest rounded-xl shadow-md px-3.5 py-2.5 gap-2.5 transition-all focus-within:ring-2 focus-within:ring-primary/25">
+<span class="material-symbols-outlined text-primary text-[22px]">search</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" id="addressInput" placeholder="Search street, landmark, ward or pincode..." type="text" value="19th Main Rd, Sector 2, HSR Layout"/>
+<button class="flex items-center justify-center p-1 rounded-full text-outline hover:text-on-surface hover:bg-surface-container transition-colors" id="clearSearchBtn">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+<!-- Ward / BBMP Jurisdiction Micro-Chip -->
+<div class="self-start pointer-events-auto mt-0.5">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest/95 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-primary text-[15px]">apartment</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Ward 174: HSR Layout</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-normal">| BBMP South</span>
+</div>
+</div>
+</div>
+<!-- Centered Animated Draggable Pin Marker -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 -translate-y-5">
+<div class="relative flex flex-col items-center">
+<!-- Radar Pulse Rings -->
+<span class="absolute -bottom-1 h-12 w-12 rounded-full bg-primary/20 animate-ping"></span>
+<span class="absolute -bottom-1 h-6 w-6 rounded-full bg-primary/30"></span>
+<!-- Floating Marker Label Bubble -->
+<div class="mb-1.5 flex items-center gap-1.5 bg-primary px-2.5 py-1 rounded-full shadow-lg text-on-primary">
+<span class="material-symbols-outlined text-[13px] animate-spin" style="animation-duration: 3s;">sync</span>
+<span class="font-label-sm text-label-sm tracking-wide">Drop Pin Location</span>
+</div>
+<!-- The Iconic Pin Anchor -->
+<div class="relative flex items-center justify-center filter drop-shadow-[0_8px_12px_rgba(0,49,36,0.35)] cursor-pointer pointer-events-auto transform hover:scale-110 active:scale-95 transition-transform duration-200">
+<svg fill="none" height="56" viewbox="0 0 46 56" width="46" xmlns="http://www.w3.org/2000/svg">
+<path d="M23 0C10.2975 0 0 10.2975 0 23C0 37.3828 20.3125 53.8672 21.2188 54.5938C21.7344 55.0156 22.3672 55.25 23 55.25C23.6328 55.25 24.2656 55.0156 24.7812 54.5938C25.6875 53.8672 46 37.3828 46 23C46 10.2975 35.7025 0 23 0Z" fill="#176B50"></path>
+<circle cx="23" cy="22" fill="#FFFFFF" r="11"></circle>
+<circle cx="23" cy="22" fill="#176B50" r="6"></circle>
+</svg>
+</div>
+<!-- Shadow base -->
+<div class="w-4 h-1.5 bg-on-background/25 rounded-full blur-[1px] mt-0.5"></div>
+</div>
+</div>
+<!-- Map Floating Action Buttons (Right-Hand Thumb Zone) -->
+<div class="absolute right-gutter-mobile bottom-4 flex flex-col gap-2 z-20">
+<!-- Locate Me (GPS) -->
+<button aria-label="Current Location" class="w-12 h-12 rounded-xl bg-surface-container-lowest text-primary shadow-lg flex items-center justify-center hover:bg-surface-container-low active:scale-90 transition-all focus:outline-none" id="locateMeBtn">
+<span class="material-symbols-outlined text-[24px]">near_me</span>
+</button>
+<!-- Zoom Stack -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-lg overflow-hidden">
+<button aria-label="Zoom In" class="w-12 h-10 flex items-center justify-center text-on-surface hover:bg-surface-container-low active:bg-surface-container transition-colors" id="zoomInBtn">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<div class="h-[1px] w-8 mx-auto bg-surface-container"></div>
+<button aria-label="Zoom Out" class="w-12 h-10 flex items-center justify-center text-on-surface hover:bg-surface-container-low active:bg-surface-container transition-colors" id="zoomOutBtn">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+</div>
+<!-- Layer Toggle -->
+<button aria-label="Toggle Layers" class="w-12 h-12 rounded-xl bg-surface-container-lowest text-on-surface shadow-lg flex items-center justify-center hover:bg-surface-container-low active:scale-90 transition-all" id="layerToggleBtn">
+<span class="material-symbols-outlined text-[22px]">layers</span>
+</button>
+</div>
+</div>
+<!-- Bottom Drawer / Location Confirmation Panel -->
+<div class="relative w-full -mt-4 bg-surface-container-lowest rounded-t-2xl shadow-[0_-8px_24px_rgba(18,30,24,0.06)] p-gutter-mobile flex flex-col gap-4 z-30">
+<!-- Grabber notch for tactical mobile feel -->
+<div class="w-12 h-1.5 bg-surface-variant rounded-full mx-auto -mt-1 opacity-70"></div>
+<!-- Header with Verified Micro-Status -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md font-semibold text-on-surface leading-tight">Confirmed Location</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Precision GPS pin attached</p>
+</div>
+</div>
+<button class="font-label-md text-label-md text-primary font-semibold hover:underline flex items-center gap-1 active:opacity-75 transition-opacity" id="adjustPinLink">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+<span>Drag Pin</span>
+</button>
+</div>
+<!-- Address & Ward Structured Bento Card -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-2.5">
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-on-surface">Opposite BDA Complex</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">Auto-Geotagged</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">19th Main Road, Sector 2, HSR Layout</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">Bengaluru, Karnataka • 560102</p>
+</div>
+<!-- Tech Meta Coordinates & Municipal Jurisdiction Chips -->
+<div class="pt-2 flex flex-wrap items-center gap-2">
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">explore</span>
+<span class="font-label-sm text-label-sm tabular-nums">12.9121° N, 77.6446° E</span>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-secondary">account_balance</span>
+<span class="font-label-sm text-label-sm">Bommanahalli Div. (Zone South)</span>
+</div>
+</div>
+</div>
+<!-- Primary Action: Confirm & Forward Flow -->
+<div class="flex flex-col gap-2 pt-1">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md font-semibold py-3.5 px-space-md rounded-xl shadow-md hover:shadow-lg active:scale-[0.99] transition-all flex items-center justify-center gap-2 group" id="confirmLocationBtn">
+<span>Confirm Location (Step 2 of 3)</span>
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<!-- Reassuring SLA / Public Dispatch Helper -->
+<div class="flex items-center justify-center gap-1.5 text-center">
+<span class="material-symbols-outlined text-primary text-[15px]">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Direct routing to Bengaluru BBMP Field Dispatch Unit</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive feedback behaviors
+  const locateBtn = document.getElementById('locateMeBtn');
+  const confirmBtn = document.getElementById('confirmLocationBtn');
+  const clearBtn = document.getElementById('clearSearchBtn');
+  const searchInput = document.getElementById('addressInput');
+
+  if (locateBtn) {
+    locateBtn.addEventListener('click', () => {
+      locateBtn.classList.add('bg-primary', 'text-on-primary');
+      setTimeout(() => {
+        locateBtn.classList.remove('bg-primary', 'text-on-primary');
+      }, 700);
+    });
+  }
+
+  if (clearBtn && searchInput) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchInput.focus();
+    });
+  }
+
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', () => {
+      confirmBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span>
+        <span>Validating GPS Geofence...</span>
+      `;
+      setTimeout(() => {
+        confirmBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[20px]">check_circle</span>
+          <span>Location Locked!</span>
+        `;
+      }, 900);
+    });
+  }
+</script></main></body></html>

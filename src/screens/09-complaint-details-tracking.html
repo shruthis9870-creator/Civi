@@ -1,0 +1,454 @@
+<!-- CivicFix - Complaint Details & Tracking -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_stack" name="shell-type"/>
+  <title>CivicFix - Complaint Details & Live Tracking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    @layer base {
+      html, body { width: 100vw; margin: 0; padding: 0; min-height: 100%; }
+      body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#6f7973",
+            "primary": "#00513b",
+            "on-primary-fixed-variant": "#00513b",
+            "secondary-fixed": "#d2e4ff",
+            "on-surface-variant": "#3f4944",
+            "tertiary": "#005136",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#e9f7ed",
+            "secondary-fixed-dim": "#b0c8ea",
+            "tertiary-fixed": "#89f8c3",
+            "surface-container-high": "#deece2",
+            "primary-fixed-dim": "#89d6b5",
+            "primary-container": "#176b50",
+            "error": "#ba1a1a",
+            "secondary": "#48607d",
+            "on-secondary-container": "#49617e",
+            "surface-tint": "#176b50",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#89d6b5",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-fixed": "#001d37",
+            "primary-fixed": "#a4f3d0",
+            "surface-dim": "#d0ddd4",
+            "tertiary-fixed-dim": "#6cdba8",
+            "inverse-surface": "#27332d",
+            "on-secondary-fixed-variant": "#304864",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-container": "#7fedb9",
+            "on-primary-fixed": "#002116",
+            "on-background": "#121e18",
+            "surface-container-highest": "#d8e6dc",
+            "outline-variant": "#bec9c2",
+            "on-primary-container": "#9be9c6",
+            "on-primary": "#ffffff",
+            "background": "#effdf3",
+            "surface": "#effdf3",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#121e18",
+            "tertiary-container": "#006c49",
+            "surface-variant": "#d8e6dc",
+            "surface-bright": "#effdf3",
+            "inverse-on-surface": "#e6f4ea",
+            "surface-container": "#e4f1e7",
+            "on-error-container": "#93000a",
+            "secondary-container": "#c3dcfe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "data-metric": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "title-md": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "data-metric": ["28px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+            "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600"}]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen">
+  <!-- Top Navigation Header -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+    <div class="h-16 px-gutter-mobile flex items-center justify-between">
+      <div class="flex items-center gap-space-xs">
+        <a href="04-my-complaints.html" aria-label="Go back" class="w-11 h-11 -ml-1 flex items-center justify-center rounded-full text-on-surface hover:text-primary transition-colors focus:outline-none">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </a>
+        <div class="flex flex-col">
+          <h1 class="font-title-md text-title-md font-semibold text-on-surface truncate max-w-[200px]">Live Ticket Tracking</h1>
+          <span class="font-label-sm text-label-sm text-primary font-mono font-medium">#CF-2026-00124</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-1">
+        <button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors" onclick="shareTicketWhatsApp()">
+          <span class="material-symbols-outlined text-[22px]">share</span>
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors" onclick="window.print()">
+          <span class="material-symbols-outlined text-[22px]">receipt</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+    <div class="flex flex-col w-full pb-8">
+      
+      <!-- Live Status & SLA Hero Ribbon -->
+      <div class="px-gutter-mobile pt-3 pb-2">
+        <div class="bg-gradient-to-r from-primary-container to-primary rounded-2xl p-space-md text-on-primary shadow-md flex flex-col gap-2 relative overflow-hidden">
+          <div class="flex items-center justify-between z-10">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md font-label-sm text-label-sm font-semibold">
+              <span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-ping"></span>
+              Crew Dispatched • En Route
+            </span>
+            <span class="font-label-sm text-label-sm text-on-primary-container font-mono">Ward 174</span>
+          </div>
+          <div class="z-10">
+            <h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold leading-tight">Field Crew #4 En Route</h2>
+            <p class="font-body-sm text-body-sm text-white/80 mt-0.5">Estimated arrival: <strong class="text-tertiary-fixed font-semibold">Today, 11:30 AM</strong> • Vehicle KA-01-EA-4821</p>
+          </div>
+          <div class="flex items-center justify-between z-10 pt-1 text-label-sm text-white/90">
+            <span>SLA Target: 48h</span>
+            <span class="font-semibold text-tertiary-fixed">On Schedule (Under 4h elapsed)</span>
+          </div>
+          <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+        </div>
+      </div>
+
+      <!-- Live Interactive GPS Dispatch Tracking Map -->
+      <div class="px-gutter-mobile mt-2">
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden flex flex-col">
+          <div class="p-3.5 pb-2 flex items-center justify-between bg-surface-container-low">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[20px]">near_me</span>
+              <span class="font-title-md text-title-md font-semibold text-on-surface">Live Vehicle Radar</span>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold animate-pulse">
+              1.2 km away
+            </span>
+          </div>
+
+          <!-- Map Viewport -->
+          <div id="tracking-map" class="w-full h-56 bg-surface-container relative"></div>
+
+          <!-- Crew Info Bar -->
+          <div class="p-3.5 bg-surface-container-lowest flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[22px]">engineering</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-body-md font-semibold text-on-surface truncate">BBMP Road Infrastructure Crew #4</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant truncate">Vehicle: KA-01-EA-4821 • Er. R. Venkatesh</span>
+              </div>
+            </div>
+            <a href="tel:112" class="px-3 py-1.5 rounded-xl bg-surface-container-low text-primary font-label-md text-label-md font-semibold flex items-center gap-1 shrink-0 active:scale-95 transition-transform">
+              <span class="material-symbols-outlined text-[16px]">call</span>
+              <span>Desk</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resolution Journey Stepper -->
+      <div class="px-gutter-mobile mt-3.5">
+        <div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-title-md text-title-md font-bold text-on-surface flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">timeline</span>
+              <span>Resolution Pipeline</span>
+            </h3>
+            <span class="font-label-sm text-label-sm text-primary font-semibold">Stage 3 of 4</span>
+          </div>
+
+          <div class="flex flex-col relative pl-2 pt-1">
+            <!-- Step 1 -->
+            <div class="flex items-start gap-3 relative pb-4">
+              <div class="absolute left-3 top-6 bottom-0 w-0.5 bg-primary"></div>
+              <div class="z-10 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xs">
+                <span class="material-symbols-outlined text-[14px]">check</span>
+              </div>
+              <div class="flex flex-col min-w-0 pt-0.5">
+                <div class="flex items-center gap-2">
+                  <span class="font-title-md text-body-md text-on-surface font-semibold">Complaint Registered</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">09:42 AM</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Validated via GPS Geotag & Ward geo-fencing</span>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex items-start gap-3 relative pb-4">
+              <div class="absolute left-3 top-6 bottom-0 w-0.5 bg-primary"></div>
+              <div class="z-10 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xs">
+                <span class="material-symbols-outlined text-[14px]">check</span>
+              </div>
+              <div class="flex flex-col min-w-0 pt-0.5">
+                <div class="flex items-center gap-2">
+                  <span class="font-title-md text-body-md text-on-surface font-semibold">AI Severity & Duplicate Check</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">09:45 AM</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Hazard Tagged: Traffic Hazard (98.4% Confidence match)</span>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex items-start gap-3 relative pb-4">
+              <div class="absolute left-3 top-6 bottom-0 w-0.5 bg-surface-container-highest"></div>
+              <div class="z-10 w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-xs">
+                <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
+              </div>
+              <div class="flex flex-col min-w-0 pt-0.5">
+                <div class="flex items-center gap-2">
+                  <span class="font-title-md text-body-md text-primary font-bold">Field Crew Dispatched</span>
+                  <span class="px-1.5 py-0.2 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Current</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Field Crew #4 en route with bitumen paver from Bommanahalli depot</span>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="flex items-start gap-3 relative">
+              <div class="z-10 w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+                <span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+              </div>
+              <div class="flex flex-col min-w-0 pt-0.5 opacity-65">
+                <span class="font-title-md text-body-md text-on-surface">Field Crew Repair & Photo Proof</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Before/After inspection report published and verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complaint Details & Evidence Card -->
+      <div class="px-gutter-mobile mt-3.5 flex flex-col gap-3">
+        <div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm uppercase font-semibold">
+              <span class="material-symbols-outlined text-[14px]">warning</span>
+              Potholes & Road Damage
+            </span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Registered 24 Oct, 09:42 AM</span>
+          </div>
+
+          <h3 class="font-title-md text-title-md font-bold text-on-surface">Severe Pothole on 19th Main Road</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Deep dangerous pothole roughly 2 feet wide right in the middle of 19th Main Road, opposite BDA Complex. Vehicles are swerving into oncoming traffic to avoid it.
+          </p>
+
+          <!-- Evidence Photo -->
+          <div class="relative w-full h-44 rounded-xl overflow-hidden shadow-sm">
+            <img class="w-full h-full object-cover" alt="Damaged asphalt pothole" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM5QQ7SpQIGphNqy1gBxvuA23Fdg-EzzIR-Q7L4E1L9dwkeEsq3IUfcdk1ZHNDzipaFmb3z_JTasgzJvknfGC-5Gm6PjNv9J9RLopNPr1_0D6Pzph9xS6iRz_9QKP30XYF-Vg8pzSUi5EpXcqMEqvmprq60t1z1xRLzTET33iQTjtX2X3Yul4vI2rM9lPxh6UsVhTM1Vr3kVhKAgwR-520U14xF-iQhIRRIIE4mHyy"/>
+            <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg text-white font-label-sm text-label-sm flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px] text-tertiary-fixed">verified</span>
+              <span>Verified Citizen Photo • GPS Tagged</span>
+            </div>
+          </div>
+
+          <!-- Location Info -->
+          <div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-1.5">
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">location_on</span>
+              <p class="font-body-sm text-body-sm text-on-surface font-medium leading-tight">Opposite BDA Complex, 19th Main Road, Sector 2, HSR Layout, Bengaluru 560102</p>
+            </div>
+            <div class="flex items-center gap-2 pl-6">
+              <span class="font-label-sm text-label-sm text-secondary font-semibold">Ward 174 (HSR Layout) • BBMP South Zone</span>
+              <span class="text-outline-variant">•</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-mono">12.9121° N, 77.6446° E</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community Upvoting & Action Bar -->
+      <div class="px-gutter-mobile mt-3.5">
+        <div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <button id="upvoteBtn" onclick="handleUpvote()" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container-low text-primary font-title-md text-title-md font-semibold hover:bg-primary hover:text-on-primary transition-all active:scale-95 shadow-sm">
+              <span class="material-symbols-outlined text-[20px]">thumb_up</span>
+              <span id="upvoteCount">42</span>
+            </button>
+            <div class="flex flex-col">
+              <span class="font-title-md text-body-md font-semibold text-on-surface">Community Backing</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Upvoted by 42 residents in Ward 174</span>
+            </div>
+          </div>
+          <button onclick="shareTicketWhatsApp()" class="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-sm active:scale-95 transition-transform flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">share</span>
+            <span>Share</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Resident Discussion / Activity Log -->
+      <div class="px-gutter-mobile mt-3.5">
+        <div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-title-md text-title-md font-bold text-on-surface">Official Activity & Comments</h4>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">2 updates</span>
+          </div>
+
+          <div class="flex flex-col gap-2.5">
+            <div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="font-label-md text-label-md font-bold text-primary flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[15px]">verified_user</span>
+                  BBMP Desk Control (Official)
+                </span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">10:00 AM</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Work order #WO-174-889 issued to HSR Division maintenance unit.</p>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="font-label-md text-label-md font-semibold text-on-surface">Ananya S. (Ward 174 Resident)</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">10:20 AM</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">I drive through here daily, thank you for reporting! Two 2-wheelers slipped yesterday.</p>
+            </div>
+          </div>
+
+          <!-- Add comment input -->
+          <div class="flex gap-2 pt-1">
+            <input type="text" id="commentInput" placeholder="Add an update or note for the crew..." class="flex-1 bg-surface-container rounded-xl px-3 py-2 font-body-sm text-body-sm text-on-surface focus:outline-none"/>
+            <button onclick="postComment()" class="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold shrink-0">
+              Post
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]">
+    <div class="flex justify-around items-center h-16 px-space-xs max-w-md mx-auto">
+      <a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant transition-colors" href="01-welcome-landing.html">
+        <span class="material-symbols-outlined text-[24px]">home</span>
+        <span class="font-label-sm text-label-sm mt-0.5">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-primary font-semibold transition-colors" href="04-my-complaints.html">
+        <span class="material-symbols-outlined text-[24px]">assignment</span>
+        <span class="font-label-sm text-label-sm mt-0.5">My Complaints</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant transition-colors" href="06-report-details-step1.html">
+        <span class="material-symbols-outlined text-[24px]">add_circle</span>
+        <span class="font-label-sm text-label-sm mt-0.5">Report</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant transition-colors" href="08-profile-notifications.html">
+        <span class="material-symbols-outlined text-[24px]">person</span>
+        <span class="font-label-sm text-label-sm mt-0.5">Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="../data/civicData.js"></script>
+  <script type="module" src="../services/store.js"></script>
+  <script type="module" src="../services/mapService.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const complaint = CivicStore.getComplaintById('CF-2026-00124') || INITIAL_COMPLAINTS[0];
+      CivicMap.initTrackingMap('tracking-map', complaint);
+    });
+
+    let upvoted = false;
+    function handleUpvote() {
+      const countEl = document.getElementById('upvoteCount');
+      const btn = document.getElementById('upvoteBtn');
+      let count = parseInt(countEl.innerText);
+      if (!upvoted) {
+        count++;
+        upvoted = true;
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-low', 'text-primary');
+      } else {
+        count--;
+        upvoted = false;
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-low', 'text-primary');
+      }
+      countEl.innerText = count;
+    }
+
+    function shareTicketWhatsApp() {
+      const msg = encodeURIComponent("Track live road repair on 19th Main Road (Ticket #CF-2026-00124) with BBMP Ward 174 on CivicFix!");
+      window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
+    }
+
+    function postComment() {
+      const input = document.getElementById('commentInput');
+      if (!input.value.trim()) return;
+      alert('Thank you! Your note has been added to the ticket log.');
+      input.value = '';
+    }
+  </script>
+</body>
+</html>

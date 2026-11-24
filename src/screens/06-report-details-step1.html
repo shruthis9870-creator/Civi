@@ -1,0 +1,343 @@
+<!-- CivicFix - Report Issue: Details (Step 1) -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#6f7973",
+          "primary": "#00513b",
+          "on-primary-fixed-variant": "#00513b",
+          "secondary-fixed": "#d2e4ff",
+          "on-surface-variant": "#3f4944",
+          "tertiary": "#005136",
+          "on-secondary": "#ffffff",
+          "surface-container-low": "#e9f7ed",
+          "secondary-fixed-dim": "#b0c8ea",
+          "tertiary-fixed": "#89f8c3",
+          "surface-container-high": "#deece2",
+          "primary-fixed-dim": "#89d6b5",
+          "primary-container": "#176b50",
+          "error": "#ba1a1a",
+          "secondary": "#48607d",
+          "on-secondary-container": "#49617e",
+          "surface-tint": "#176b50",
+          "on-error": "#ffffff",
+          "error-container": "#ffdad6",
+          "inverse-primary": "#89d6b5",
+          "on-tertiary-fixed": "#002113",
+          "on-secondary-fixed": "#001d37",
+          "primary-fixed": "#a4f3d0",
+          "surface-dim": "#d0ddd4",
+          "tertiary-fixed-dim": "#6cdba8",
+          "inverse-surface": "#27332d",
+          "on-secondary-fixed-variant": "#304864",
+          "on-tertiary-fixed-variant": "#005236",
+          "on-tertiary-container": "#7fedb9",
+          "on-primary-fixed": "#002116",
+          "on-background": "#121e18",
+          "surface-container-highest": "#d8e6dc",
+          "outline-variant": "#bec9c2",
+          "on-primary-container": "#9be9c6",
+          "on-primary": "#ffffff",
+          "background": "#effdf3",
+          "surface": "#effdf3",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "on-surface": "#121e18",
+          "tertiary-container": "#006c49",
+          "surface-variant": "#d8e6dc",
+          "surface-bright": "#effdf3",
+          "inverse-on-surface": "#e6f4ea",
+          "surface-container": "#e4f1e7",
+          "on-error-container": "#93000a",
+          "secondary-container": "#c3dcfe"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "margin": "2rem",
+          "margin-mobile": "1rem",
+          "space-xs": "0.25rem",
+          "space-xl": "2rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem",
+          "gutter": "1.5rem"
+        },
+        "fontFamily": {
+          "display-lg": ["Inter"],
+          "data-metric": ["Inter"],
+          "headline-lg": ["Inter"],
+          "display-lg-mobile": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-sm": ["Inter"],
+          "headline-lg-mobile": ["Inter"],
+          "label-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "label-md": ["Inter"],
+          "title-md": ["Inter"]
+        },
+        "fontSize": {
+          "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "data-metric": ["28px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+          "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+          "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+          "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+          "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Go back" class="w-11 h-11 -ml-1 flex items-center justify-center rounded-full text-on-surface hover:text-primary transition-colors focus:outline-none" onclick="window.location.href='01-welcome-landing.html'"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="CivicFix Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCAlavZ3zl3CViJ2ycJIhOUyB2HUKO7eMe6bvN73CWytuqj02I307KvBZkmPBJxC7YH36E0oqBEbIRUplk9_rkbzewrsAN3ezumhMPsNtzYOitbeStC_jqsDRHxg6GDUudIKBzFYZJRVi9Oznua5WDocjElM8EWlh3uGS6LAUXiavimyYrLuC7JMwCoEpotHzM3dLiVu42n7gNzF1IdTnftFttOaw0VYaWjGT323B-wJA"/><h1 class="font-title-md text-title-md font-semibold text-on-surface truncate max-w-[170px]">Report Issue</h1></div><div class="flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKTCz-xmjsYL_PwnnmsNkscS5mC-LQPCa63BE0VSYIVMnTHw6oma4Fkb3xl2aN8-1R9QoHKgiLX8Ln04tGaK9RvUypTlBopq4vkjZrP_dUYly8gENzXlFGEFOYeji6PTx6IOkgT-XCavoE2vfC6nuZLFGbb9CktLxdQZtdciqvPin8KMo1Yp0ptj3vDlV9EIEsZYsoAwl7rAteW3rmzIpOuIXGHK7FSETk4Mg6QIUL"/></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-8">
+<!-- Step Progression Header -->
+<div class="px-gutter-mobile pt-3 pb-2 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+<span class="font-semibold text-primary">Step 1 of 3</span>
+<span class="font-medium text-on-surface-variant">Issue Details</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-1/3 transition-all duration-500 ease-out"></div>
+</div>
+</div>
+<div class="px-gutter-mobile flex flex-col gap-space-md mt-2">
+<!-- AI-Assisted Smart Suggestion Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary-fixed/30 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-start gap-space-sm relative z-10">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-primary">AI Vision Active</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-semibold">98% match</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface font-semibold mt-0.5">Road Damage &amp; Potholes</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Autodetected from your uploaded camera media. You can adjust the category below at any time.</p>
+</div>
+</div>
+</div>
+<!-- Form Section -->
+<form class="flex flex-col gap-space-lg" onsubmit="event.preventDefault();">
+<!-- 1. Complaint Title -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md font-semibold text-on-surface flex items-center justify-between" for="complaint-title">
+<span>Complaint Title</span>
+<span class="font-label-sm text-label-sm text-error font-medium">*Required</span>
+</label>
+<div class="relative">
+<input class="w-full rounded-lg bg-surface-container-lowest px-space-md py-2.5 font-body-md text-body-md text-on-surface placeholder:text-outline shadow-sm focus:outline-none focus:bg-surface-container-lowest focus:ring-0 transition-colors" id="complaint-title" placeholder="e.g., Deep dangerous pothole near 5th Block junction" type="text" value="Deep dangerous pothole near 5th Block junction"/>
+</div>
+</div>
+<!-- 2. Category Selection Grid -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md font-semibold text-on-surface">Category</label>
+<span class="font-label-sm text-label-sm text-primary font-medium">Auto-selected</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm" id="category-grid">
+<!-- Card 1: Selected Road Damage -->
+<button class="category-card text-left p-space-sm rounded-xl bg-primary text-on-primary shadow-md flex flex-col justify-between h-24 transition-all duration-200 relative overflow-hidden" data-category="pothole" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-on-primary/15 flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]">crisis_alert</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-primary checkmark" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="min-w-0 pr-1">
+<p class="font-title-md text-title-md font-semibold leading-tight line-clamp-2">Potholes &amp; Road Damage</p>
+</div>
+</button>
+<!-- Card 2: Garbage -->
+<button class="category-card text-left p-space-sm rounded-xl bg-surface-container-lowest text-on-surface shadow-sm flex flex-col justify-between h-24 transition-all duration-200 relative overflow-hidden" data-category="garbage" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">delete_sweep</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary checkmark hidden" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="min-w-0 pr-1">
+<p class="font-title-md text-title-md font-medium text-on-surface leading-tight line-clamp-2">Garbage &amp; Waste</p>
+</div>
+</button>
+<!-- Card 3: Streetlights -->
+<button class="category-card text-left p-space-sm rounded-xl bg-surface-container-lowest text-on-surface shadow-sm flex flex-col justify-between h-24 transition-all duration-200 relative overflow-hidden" data-category="streetlights" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">light</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary checkmark hidden" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="min-w-0 pr-1">
+<p class="font-title-md text-title-md font-medium text-on-surface leading-tight line-clamp-2">Broken Streetlights</p>
+</div>
+</button>
+<!-- Card 4: Water Leakage -->
+<button class="category-card text-left p-space-sm rounded-xl bg-surface-container-lowest text-on-surface shadow-sm flex flex-col justify-between h-24 transition-all duration-200 relative overflow-hidden" data-category="water" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary checkmark hidden" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="min-w-0 pr-1">
+<p class="font-title-md text-title-md font-medium text-on-surface leading-tight line-clamp-2">Water Leakage</p>
+</div>
+</button>
+<!-- Card 5: Drainage -->
+<button class="category-card text-left p-space-sm rounded-xl bg-surface-container-lowest text-on-surface shadow-sm flex flex-col justify-between h-24 transition-all duration-200 relative overflow-hidden" data-category="drainage" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">water_damage</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary checkmark hidden" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="min-w-0 pr-1">
+<p class="font-title-md text-title-md font-medium text-on-surface leading-tight line-clamp-2">Drainage Problems</p>
+</div>
+</button>
+<!-- Card 6: Other Civic -->
+<button class="category-card text-left p-space-sm rounded-xl bg-surface-container-lowest text-on-surface shadow-sm flex flex-col justify-between h-24 transition-all duration-200 relative overflow-hidden" data-category="other" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">build_circle</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary checkmark hidden" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="min-w-0 pr-1">
+<p class="font-title-md text-title-md font-medium text-on-surface leading-tight line-clamp-2">Other Civic Issues</p>
+</div>
+</button>
+</div>
+</div>
+<!-- 3. Issue Description Textarea -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md font-semibold text-on-surface" for="issue-description">Issue Description</label>
+<div class="relative bg-surface-container-lowest rounded-xl p-space-sm shadow-sm">
+<textarea class="w-full bg-transparent resize-none font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" id="issue-description" maxlength="500" oninput="document.getElementById('char-counter').innerText = this.value.length + ' / 500';" placeholder="Describe the issue, landmarks, severity, and any hazards to traffic or pedestrians..." rows="4">Deep pothole roughly 2 feet wide right in the middle of 19th Main Road, opposite BDA Complex. Vehicles are swerving into oncoming traffic to avoid it.</textarea>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+              Clear civic impact noted
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium" id="char-counter">168 / 500</span>
+</div>
+</div>
+</div>
+<!-- 4. Photo / Video Upload Section -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md font-semibold text-on-surface">Visual Evidence</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1 attached (Max 3)</span>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container-lowest rounded-xl shadow-sm text-primary font-title-md text-title-md active:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+<span>Take Photo</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container-lowest rounded-xl shadow-sm text-secondary font-title-md text-title-md active:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+<span>From Gallery</span>
+</button>
+</div>
+<!-- Uploaded Media Preview Thumbnail Card -->
+<div class="mt-1 p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex items-center gap-space-sm" id="media-preview">
+<div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close-up high contrast street photograph of an asphalt pothole on an urban road with jagged cracked edges, sunlight casting crisp shadows, urban municipal context in forest green and asphalt tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoOJ2yv1B80Uo_JJWtcx0E9BRq4ZmjlCq_bF9lQRhcMSV-2RTd44qO1U7iMjl3rhOJ0UlWxdnpa5q0li2nwgZzGB8iTJL-d19Wl0d23nnPwUz_onZr8vQO6z8yZ3zLDQPHk3W2Go89NOFiWaS-VSCJ9CyuU4cNCFyWqWhQqSX4Q-zh2m8Mq_22dFkbWaQDTxOAiPyCu0bkBhuA1d2rf7IM9ONSZo8x4UG-kmQNzjbS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<span class="absolute bottom-1 left-1 font-label-sm text-label-sm text-white px-1 rounded bg-black/50 text-[10px]">JPG</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">pothole_19th_main.jpg</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">2.4 MB • Geotagged</span>
+<div class="flex items-center gap-3 mt-1.5">
+<button class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-1 active:opacity-75" type="button">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+                Retake
+              </button>
+<button class="font-label-sm text-label-sm text-error font-semibold flex items-center gap-1 active:opacity-75" onclick="document.getElementById('media-preview').remove();" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+                Remove
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Primary CTA -->
+<div class="pt-2">
+<button onclick="window.location.href='07-report-location-step2.html'" class="w-full py-3.5 px-space-lg rounded-xl bg-primary-container text-on-primary font-title-md text-title-md font-semibold shadow-md active:opacity-90 flex items-center justify-center gap-2 transition-transform duration-100 active:scale-[0.99]" type="button">
+<span>Continue to Location (Step 2/3)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant mt-2">
+          Your report will be automatically dispatched to Public Works Dept.
+        </p>
+</div>
+</form>
+</div>
+</div>
+<script>
+  (function() {
+    const cards = document.querySelectorAll('.category-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary', 'shadow-md');
+          c.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+          const iconBox = c.querySelector('div > div');
+          if (iconBox) {
+            iconBox.className = 'w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary';
+          }
+          const checkmark = c.querySelector('.checkmark');
+          if (checkmark) {
+            checkmark.classList.add('hidden');
+          }
+          const title = c.querySelector('p');
+          if (title) {
+            title.className = 'font-title-md text-title-md font-medium text-on-surface leading-tight line-clamp-2';
+          }
+        });
+
+        // Activate clicked
+        card.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+        card.classList.add('bg-primary', 'text-on-primary', 'shadow-md');
+        const activeIconBox = card.querySelector('div > div');
+        if (activeIconBox) {
+          activeIconBox.className = 'w-8 h-8 rounded-lg bg-on-primary/15 flex items-center justify-center text-on-primary';
+        }
+        const activeCheck = card.querySelector('.checkmark');
+        if (activeCheck) {
+          activeCheck.classList.remove('hidden');
+        }
+        const activeTitle = card.querySelector('p');
+        if (activeTitle) {
+          activeTitle.className = 'font-title-md text-title-md font-semibold text-on-primary leading-tight line-clamp-2';
+        }
+      });
+    });
+  })();
+</script></main></body></html>

@@ -1,0 +1,20 @@
+{
+  "name": "civicfix-portal",
+  "version": "1.0.0",
+  "description": "CivicFix - Municipal Issue Reporting & Real-time Live Tracking Platform for Bengaluru Citizens (BBMP)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "civicfix",
+    "bbmp",
+    "bengaluru",
+    "smart-city",
+    "civic-tech",
+    "student-project"
+  ],
+  "author": "Shruthi",
+  "license": "MIT"
+}

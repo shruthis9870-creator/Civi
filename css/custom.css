@@ -1,0 +1,95 @@
+/* CivicFix Custom Enhancements */
+@layer base {
+  html, body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animations */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s infinite ease-in-out;
+}
+
+/* Device Simulator Wrapper for Desktop Presentation */
+@media (min-width: 768px) {
+  body.device-frame-active {
+    background-color: #1a241f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px 0;
+    overflow-y: auto;
+  }
+
+  body.device-frame-active #app-viewport {
+    max-width: 430px;
+    height: 900px;
+    border-radius: 44px;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.65), 0 0 0 10px #2a3830, 0 0 0 12px #3d5045;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #effdf3;
+  }
+
+  body.device-frame-active #device-notch {
+    display: block;
+  }
+}
+
+#device-notch {
+  display: none;
+}
+
+/* Leaflet Map Styling adjustments for dark/light green theme */
+.leaflet-container {
+  font-family: 'Inter', sans-serif !important;
+  background-color: #e4f1e7 !important;
+}
+
+.leaflet-bar a {
+  background-color: #ffffff !important;
+  color: #00513b !important;
+  border-color: #d8e6dc !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #e9f7ed !important;
+}
+
+/* Custom Marker Pin Animation */
+.custom-pin-marker {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.custom-pin-marker:hover {
+  transform: scale(1.15) translateY(-4px);
+}
